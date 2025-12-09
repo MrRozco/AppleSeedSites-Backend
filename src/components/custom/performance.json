@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_custom_performances",
+  "info": {
+    "displayName": "performance"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "stat": {
+      "type": "component",
+      "component": "layout.stat",
+      "repeatable": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "bulletPoint": {
+      "type": "component",
+      "component": "custom.bullet-point",
+      "repeatable": true
+    },
+    "button": {
+      "type": "component",
+      "component": "layout.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_custom_about_sections",
+  "info": {
+    "displayName": "aboutSection"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "bulletPoint": {
+      "type": "component",
+      "component": "custom.bullet-point",
+      "repeatable": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "imageRight": {
+      "type": "boolean"
+    },
+    "button": {
+      "type": "component",
+      "component": "layout.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_custom_cards",
+  "info": {
+    "displayName": "card"
+  },
+  "options": {},
+  "attributes": {
+    "lightIcon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "darkIcon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "testimonial": {
+      "type": "text"
+    },
+    "name": {
+      "type": "string"
+    },
+    "subname": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

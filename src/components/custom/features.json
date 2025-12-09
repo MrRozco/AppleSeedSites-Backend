@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_custom_features",
+  "info": {
+    "displayName": "features"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "text"
+    },
+    "featuresCard": {
+      "type": "component",
+      "component": "custom.features-card",
+      "repeatable": true
+    },
+    "button": {
+      "type": "component",
+      "component": "layout.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

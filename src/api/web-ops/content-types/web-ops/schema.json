@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "web_opss",
+  "info": {
+    "singularName": "web-ops",
+    "pluralName": "web-opss",
+    "displayName": "webOps"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "url": {
+      "type": "string"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "custom.hero",
+        "custom.business-section"
+      ]
+    }
+  }
+}

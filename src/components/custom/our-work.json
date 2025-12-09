@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_custom_our_works",
+  "info": {
+    "displayName": "ourWork"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "portfolioCard": {
+      "type": "component",
+      "component": "layout.portfolio-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

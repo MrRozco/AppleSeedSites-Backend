@@ -1,0 +1,43 @@
+{
+  "collectionName": "components_custom_business_sections",
+  "info": {
+    "displayName": "businessSection"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "tag": {
+      "type": "string"
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "bulletPoint": {
+      "type": "component",
+      "component": "custom.bullet-point",
+      "repeatable": true
+    },
+    "sliderImages": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "imageRight": {
+      "type": "boolean",
+      "default": true
+    },
+    "button": {
+      "type": "component",
+      "component": "layout.button",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

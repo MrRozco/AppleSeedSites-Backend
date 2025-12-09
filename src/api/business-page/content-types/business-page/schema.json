@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "business_pages",
+  "info": {
+    "singularName": "business-page",
+    "pluralName": "business-pages",
+    "displayName": "businessPage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "url": {
+      "type": "string"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "custom.hero",
+        "custom.business-section"
+      ]
+    }
+  }
+}

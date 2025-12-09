@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_custom_bullet_points",
+  "info": {
+    "displayName": "bulletPoint"
+  },
+  "options": {},
+  "attributes": {
+    "lightIcon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "darkIcon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "text": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

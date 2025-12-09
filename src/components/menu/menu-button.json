@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_menu_menu_buttons",
+  "info": {
+    "displayName": "menuButton",
+    "icon": "cursor"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary"
+      ]
+    }
+  },
+  "config": {}
+}

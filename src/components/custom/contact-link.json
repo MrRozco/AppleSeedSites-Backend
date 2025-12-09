@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_custom_contact_links",
+  "info": {
+    "displayName": "contactLink"
+  },
+  "options": {},
+  "attributes": {
+    "lightIcon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "darkIcon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "url": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

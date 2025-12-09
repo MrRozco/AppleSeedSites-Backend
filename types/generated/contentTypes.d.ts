@@ -385,7 +385,15 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
   attributes: {
     content: Schema.Attribute.DynamicZone<
-      ['custom.hero', 'custom.about-section']
+      [
+        'custom.hero',
+        'custom.about-section',
+        'custom.testimonials',
+        'custom.performance',
+        'custom.our-work',
+        'custom.features',
+        'custom.business-section',
+      ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -415,7 +423,15 @@ export interface ApiAiAi extends Struct.SingleTypeSchema {
   };
   attributes: {
     content: Schema.Attribute.DynamicZone<
-      ['custom.business-section', 'custom.hero']
+      [
+        'custom.business-section',
+        'custom.hero',
+        'custom.testimonials',
+        'custom.performance',
+        'custom.our-work',
+        'custom.features',
+        'custom.about-section',
+      ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -445,7 +461,15 @@ export interface ApiBusinessPageBusinessPage extends Struct.SingleTypeSchema {
   };
   attributes: {
     content: Schema.Attribute.DynamicZone<
-      ['custom.hero', 'custom.business-section']
+      [
+        'custom.hero',
+        'custom.business-section',
+        'custom.testimonials',
+        'custom.performance',
+        'custom.our-work',
+        'custom.features',
+        'custom.about-section',
+      ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -478,7 +502,15 @@ export interface ApiContactContact extends Struct.SingleTypeSchema {
   };
   attributes: {
     content: Schema.Attribute.DynamicZone<
-      ['custom.about-section', 'custom.hero']
+      [
+        'custom.about-section',
+        'custom.hero',
+        'custom.testimonials',
+        'custom.performance',
+        'custom.our-work',
+        'custom.features',
+        'custom.business-section',
+      ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -645,7 +677,15 @@ export interface ApiTestimonialTestimonial extends Struct.SingleTypeSchema {
   };
   attributes: {
     content: Schema.Attribute.DynamicZone<
-      ['custom.testimonials', 'custom.hero']
+      [
+        'custom.testimonials',
+        'custom.hero',
+        'custom.performance',
+        'custom.our-work',
+        'custom.features',
+        'custom.about-section',
+        'custom.business-section',
+      ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -678,7 +718,15 @@ export interface ApiWebOpsWebOps extends Struct.SingleTypeSchema {
   };
   attributes: {
     content: Schema.Attribute.DynamicZone<
-      ['custom.hero', 'custom.business-section']
+      [
+        'custom.hero',
+        'custom.business-section',
+        'custom.testimonials',
+        'custom.performance',
+        'custom.our-work',
+        'custom.features',
+        'custom.about-section',
+      ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

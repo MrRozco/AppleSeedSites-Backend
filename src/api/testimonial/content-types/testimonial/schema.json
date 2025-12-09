@@ -24,7 +24,12 @@
       "type": "dynamiczone",
       "components": [
         "custom.testimonials",
-        "custom.hero"
+        "custom.hero",
+        "custom.performance",
+        "custom.our-work",
+        "custom.features",
+        "custom.about-section",
+        "custom.business-section"
       ]
     }
   }

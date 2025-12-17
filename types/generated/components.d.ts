@@ -142,6 +142,18 @@ export interface CustomPerformance extends Struct.ComponentSchema {
   };
 }
 
+export interface CustomPricing extends Struct.ComponentSchema {
+  collectionName: 'components_custom_pricings';
+  info: {
+    displayName: 'Pricing';
+  };
+  attributes: {
+    card: Schema.Attribute.Component<'layout.pricing-cards', true>;
+    description: Schema.Attribute.Text;
+    heading: Schema.Attribute.String;
+  };
+}
+
 export interface CustomTestimonials extends Struct.ComponentSchema {
   collectionName: 'components_custom_testimonials';
   info: {
@@ -177,6 +189,21 @@ export interface LayoutPortfolioCard extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     title: Schema.Attribute.String;
     url: Schema.Attribute.String;
+  };
+}
+
+export interface LayoutPricingCards extends Struct.ComponentSchema {
+  collectionName: 'components_layout_pricing_cards';
+  info: {
+    displayName: 'pricingCards';
+  };
+  attributes: {
+    bulletPoint: Schema.Attribute.Component<'custom.bullet-point', true>;
+    cta: Schema.Attribute.Component<'layout.button', true>;
+    description: Schema.Attribute.Text;
+    price: Schema.Attribute.Decimal;
+    priceText: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -256,9 +283,11 @@ declare module '@strapi/strapi' {
       'custom.hero': CustomHero;
       'custom.our-work': CustomOurWork;
       'custom.performance': CustomPerformance;
+      'custom.pricing': CustomPricing;
       'custom.testimonials': CustomTestimonials;
       'layout.button': LayoutButton;
       'layout.portfolio-card': LayoutPortfolioCard;
+      'layout.pricing-cards': LayoutPricingCards;
       'layout.stat': LayoutStat;
       'menu.dropdown': MenuDropdown;
       'menu.link': MenuLink;

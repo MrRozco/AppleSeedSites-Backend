@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_layout_pricing_cards",
+  "info": {
+    "displayName": "pricingCards"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "bulletPoint": {
+      "type": "component",
+      "component": "custom.bullet-point",
+      "repeatable": true
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "priceText": {
+      "type": "string"
+    },
+    "cta": {
+      "type": "component",
+      "component": "layout.button",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

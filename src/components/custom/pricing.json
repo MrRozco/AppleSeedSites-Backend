@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_custom_pricings",
+  "info": {
+    "displayName": "Pricing"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "card": {
+      "type": "component",
+      "component": "layout.pricing-cards",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

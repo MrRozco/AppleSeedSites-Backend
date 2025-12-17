@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "homepages",
+  "collectionName": "pricings",
   "info": {
-    "singularName": "homepage",
-    "pluralName": "homepages",
-    "displayName": "homepage"
+    "singularName": "pricing",
+    "pluralName": "pricings",
+    "displayName": "Pricing"
   },
   "options": {
     "draftAndPublish": true
@@ -17,15 +17,16 @@
     "description": {
       "type": "text"
     },
+    "url": {
+      "type": "string"
+    },
     "content": {
       "type": "dynamiczone",
       "components": [
         "custom.hero",
+        "custom.pricing",
         "custom.features",
-        "custom.our-work",
-        "custom.performance",
-        "custom.testimonials",
-        "custom.pricing"
+        "custom.about-section"
       ]
     }
   }

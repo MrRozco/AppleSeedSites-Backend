@@ -150,6 +150,7 @@ export interface CustomPricing extends Struct.ComponentSchema {
   attributes: {
     card: Schema.Attribute.Component<'layout.pricing-cards', true>;
     description: Schema.Attribute.Text;
+    eyebrow: Schema.Attribute.String;
     heading: Schema.Attribute.String;
   };
 }

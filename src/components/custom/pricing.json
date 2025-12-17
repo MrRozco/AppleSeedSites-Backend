@@ -5,6 +5,9 @@
   },
   "options": {},
   "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
     "heading": {
       "type": "string"
     },

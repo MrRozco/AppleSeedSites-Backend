@@ -73,6 +73,24 @@ export interface CustomContactLink extends Struct.ComponentSchema {
   };
 }
 
+export interface CustomContactSection extends Struct.ComponentSchema {
+  collectionName: 'components_custom_contact_sections';
+  info: {
+    displayName: 'contactSection';
+  };
+  attributes: {
+    bulletPoint: Schema.Attribute.Component<'custom.bullet-point', true>;
+    darkIcon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    description: Schema.Attribute.Text;
+    embed: Schema.Attribute.Text;
+    lightIcon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.Component<'custom.contact-link', true>;
+    subtitle: Schema.Attribute.String;
+    supportingTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface CustomFeatures extends Struct.ComponentSchema {
   collectionName: 'components_custom_features';
   info: {
@@ -279,6 +297,7 @@ declare module '@strapi/strapi' {
       'custom.business-section': CustomBusinessSection;
       'custom.card': CustomCard;
       'custom.contact-link': CustomContactLink;
+      'custom.contact-section': CustomContactSection;
       'custom.features': CustomFeatures;
       'custom.features-card': CustomFeaturesCard;
       'custom.hero': CustomHero;

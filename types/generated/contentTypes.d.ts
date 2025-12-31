@@ -510,6 +510,7 @@ export interface ApiContactContact extends Struct.SingleTypeSchema {
         'custom.our-work',
         'custom.features',
         'custom.business-section',
+        'custom.contact-section',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

@@ -1,0 +1,55 @@
+{
+  "collectionName": "components_custom_contact_sections",
+  "info": {
+    "displayName": "contactSection"
+  },
+  "options": {},
+  "attributes": {
+    "darkIcon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "lightIcon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "embed": {
+      "type": "text"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "link": {
+      "type": "component",
+      "component": "custom.contact-link",
+      "repeatable": true
+    },
+    "supportingTitle": {
+      "type": "string"
+    },
+    "bulletPoint": {
+      "type": "component",
+      "component": "custom.bullet-point",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

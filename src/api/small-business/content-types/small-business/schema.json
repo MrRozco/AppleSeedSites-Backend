@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "small_businesses",
+  "info": {
+    "singularName": "small-business",
+    "pluralName": "small-businesses",
+    "displayName": "smallBusiness"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "url": {
+      "type": "string"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "custom.testimonials",
+        "custom.pricing",
+        "custom.performance",
+        "custom.our-work",
+        "custom.hero",
+        "custom.features",
+        "custom.business-section",
+        "custom.about-section"
+      ]
+    }
+  }
+}

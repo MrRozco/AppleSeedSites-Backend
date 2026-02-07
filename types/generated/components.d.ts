@@ -244,6 +244,7 @@ export interface MenuDropdown extends Struct.ComponentSchema {
     icon: 'arrowDown';
   };
   attributes: {
+    menuLink: Schema.Attribute.Component<'menu.menu-link', true>;
     sections: Schema.Attribute.Relation<'oneToMany', 'api::section.section'>;
     title: Schema.Attribute.String;
   };

@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "medium_businesses",
+  "info": {
+    "singularName": "medium-business",
+    "pluralName": "medium-businesses",
+    "displayName": "mediumBusiness"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "url": {
+      "type": "string"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "custom.testimonials",
+        "custom.pricing",
+        "custom.performance",
+        "custom.our-work",
+        "custom.hero",
+        "custom.features",
+        "custom.contact-section",
+        "custom.business-section",
+        "custom.about-section"
+      ]
+    }
+  }
+}

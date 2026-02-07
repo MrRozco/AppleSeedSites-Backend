@@ -13,6 +13,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::section.section"
+    },
+    "menuLink": {
+      "type": "component",
+      "component": "menu.menu-link",
+      "repeatable": true
     }
   },
   "config": {}

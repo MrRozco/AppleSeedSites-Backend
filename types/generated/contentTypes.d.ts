@@ -449,47 +449,6 @@ export interface ApiAiAi extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiBusinessPageBusinessPage extends Struct.SingleTypeSchema {
-  collectionName: 'business_pages';
-  info: {
-    displayName: 'businessPage';
-    pluralName: 'business-pages';
-    singularName: 'business-page';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    content: Schema.Attribute.DynamicZone<
-      [
-        'custom.hero',
-        'custom.business-section',
-        'custom.testimonials',
-        'custom.performance',
-        'custom.our-work',
-        'custom.features',
-        'custom.about-section',
-      ]
-    >;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::business-page.business-page'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    url: Schema.Attribute.String;
-  };
-}
-
 export interface ApiContactContact extends Struct.SingleTypeSchema {
   collectionName: 'contacts';
   info: {
@@ -521,6 +480,49 @@ export interface ApiContactContact extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::contact.contact'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String;
+  };
+}
+
+export interface ApiECommerceECommerce extends Struct.SingleTypeSchema {
+  collectionName: 'e_commerces';
+  info: {
+    displayName: 'e-commerce';
+    pluralName: 'e-commerces';
+    singularName: 'e-commerce';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<
+      [
+        'custom.testimonials',
+        'custom.pricing',
+        'custom.performance',
+        'custom.our-work',
+        'custom.hero',
+        'custom.features',
+        'custom.contact-section',
+        'custom.business-section',
+        'custom.about-section',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::e-commerce.e-commerce'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -602,6 +604,93 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiLandingPageLandingPage extends Struct.SingleTypeSchema {
+  collectionName: 'landing_pages';
+  info: {
+    displayName: 'Landing Page';
+    pluralName: 'landing-pages';
+    singularName: 'landing-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<
+      [
+        'custom.testimonials',
+        'custom.pricing',
+        'custom.performance',
+        'custom.our-work',
+        'custom.hero',
+        'custom.features',
+        'custom.contact-section',
+        'custom.business-section',
+        'custom.about-section',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::landing-page.landing-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String;
+  };
+}
+
+export interface ApiMediumBusinessMediumBusiness
+  extends Struct.SingleTypeSchema {
+  collectionName: 'medium_businesses';
+  info: {
+    displayName: 'mediumBusiness';
+    pluralName: 'medium-businesses';
+    singularName: 'medium-business';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<
+      [
+        'custom.testimonials',
+        'custom.pricing',
+        'custom.performance',
+        'custom.our-work',
+        'custom.hero',
+        'custom.features',
+        'custom.contact-section',
+        'custom.business-section',
+        'custom.about-section',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::medium-business.medium-business'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String;
   };
 }
 
@@ -738,6 +827,131 @@ export interface ApiSectionSection extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiSeoSeo extends Struct.SingleTypeSchema {
+  collectionName: 'seos';
+  info: {
+    displayName: 'SEO';
+    pluralName: 'seos';
+    singularName: 'seo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<
+      [
+        'custom.testimonials',
+        'custom.pricing',
+        'custom.performance',
+        'custom.our-work',
+        'custom.hero',
+        'custom.features',
+        'custom.contact-section',
+        'custom.business-section',
+        'custom.about-section',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::seo.seo'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String;
+  };
+}
+
+export interface ApiSmallBusinessSmallBusiness extends Struct.SingleTypeSchema {
+  collectionName: 'small_businesses';
+  info: {
+    displayName: 'smallBusiness';
+    pluralName: 'small-businesses';
+    singularName: 'small-business';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<
+      [
+        'custom.testimonials',
+        'custom.pricing',
+        'custom.performance',
+        'custom.our-work',
+        'custom.hero',
+        'custom.features',
+        'custom.business-section',
+        'custom.about-section',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::small-business.small-business'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String;
+  };
+}
+
+export interface ApiTemplateTemplate extends Struct.SingleTypeSchema {
+  collectionName: 'templates';
+  info: {
+    displayName: 'Template';
+    pluralName: 'templates';
+    singularName: 'template';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<
+      [
+        'custom.testimonials',
+        'custom.pricing',
+        'custom.performance',
+        'custom.our-work',
+        'custom.hero',
+        'custom.features',
+        'custom.contact-section',
+        'custom.business-section',
+        'custom.about-section',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::template.template'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface ApiTermsOfServiceTermsOfService
   extends Struct.SingleTypeSchema {
   collectionName: 'terms_of_services';
@@ -813,12 +1027,12 @@ export interface ApiTestimonialTestimonial extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiWebOpsWebOps extends Struct.SingleTypeSchema {
-  collectionName: 'web_opss';
+export interface ApiWebOpWebOp extends Struct.SingleTypeSchema {
+  collectionName: 'web_ops';
   info: {
-    displayName: 'webOps';
-    pluralName: 'web-opss';
-    singularName: 'web-ops';
+    displayName: 'web-op';
+    pluralName: 'web-ops';
+    singularName: 'web-op';
   };
   options: {
     draftAndPublish: true;
@@ -826,12 +1040,14 @@ export interface ApiWebOpsWebOps extends Struct.SingleTypeSchema {
   attributes: {
     content: Schema.Attribute.DynamicZone<
       [
-        'custom.hero',
-        'custom.business-section',
         'custom.testimonials',
         'custom.performance',
+        'custom.pricing',
         'custom.our-work',
+        'custom.hero',
         'custom.features',
+        'custom.contact-section',
+        'custom.business-section',
         'custom.about-section',
       ]
     >;
@@ -842,7 +1058,7 @@ export interface ApiWebOpsWebOps extends Struct.SingleTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::web-ops.web-ops'
+      'api::web-op.web-op'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -1365,17 +1581,22 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::ai.ai': ApiAiAi;
-      'api::business-page.business-page': ApiBusinessPageBusinessPage;
       'api::contact.contact': ApiContactContact;
+      'api::e-commerce.e-commerce': ApiECommerceECommerce;
       'api::footer.footer': ApiFooterFooter;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::landing-page.landing-page': ApiLandingPageLandingPage;
+      'api::medium-business.medium-business': ApiMediumBusinessMediumBusiness;
       'api::navbar.navbar': ApiNavbarNavbar;
       'api::pricing.pricing': ApiPricingPricing;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::section.section': ApiSectionSection;
+      'api::seo.seo': ApiSeoSeo;
+      'api::small-business.small-business': ApiSmallBusinessSmallBusiness;
+      'api::template.template': ApiTemplateTemplate;
       'api::terms-of-service.terms-of-service': ApiTermsOfServiceTermsOfService;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
-      'api::web-ops.web-ops': ApiWebOpsWebOps;
+      'api::web-op.web-op': ApiWebOpWebOp;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

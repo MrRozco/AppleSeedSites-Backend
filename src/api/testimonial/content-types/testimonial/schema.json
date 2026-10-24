@@ -29,7 +29,10 @@
         "custom.our-work",
         "custom.features",
         "custom.about-section",
-        "custom.business-section"
+        "custom.business-section",
+        "custom.steps",
+        "custom.faq",
+        "custom.lead-form"
       ]
     }
   }

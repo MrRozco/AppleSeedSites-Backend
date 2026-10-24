@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_custom_faqs",
+  "info": {
+    "displayName": "faq",
+    "description": "Frequently asked questions. Also published to Google as FAQ structured data."
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "faqItem": {
+      "type": "component",
+      "component": "layout.faq-item",
+      "repeatable": true
+    },
+    "button": {
+      "type": "component",
+      "component": "layout.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

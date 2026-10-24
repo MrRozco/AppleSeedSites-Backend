@@ -23,6 +23,16 @@
         "videos",
         "audios"
       ]
+    },
+    "button": {
+      "type": "component",
+      "component": "layout.button",
+      "repeatable": true
+    },
+    "trust": {
+      "type": "component",
+      "component": "layout.trust-item",
+      "repeatable": true
     }
   },
   "config": {}

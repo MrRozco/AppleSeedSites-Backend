@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_layout_trust_items",
+  "info": {
+    "displayName": "trustItem",
+    "description": "Small proof point under the hero buttons. Turn on \"stars\" to show a 5-star rating instead of the icon."
+  },
+  "options": {},
+  "attributes": {
+    "stars": {
+      "type": "boolean",
+      "default": false
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "text": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

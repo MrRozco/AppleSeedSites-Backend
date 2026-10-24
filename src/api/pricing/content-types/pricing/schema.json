@@ -26,7 +26,10 @@
         "custom.hero",
         "custom.pricing",
         "custom.features",
-        "custom.about-section"
+        "custom.about-section",
+        "custom.steps",
+        "custom.faq",
+        "custom.lead-form"
       ]
     }
   }

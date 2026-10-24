@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_layout_steps",
+  "info": {
+    "displayName": "step"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

@@ -18,6 +18,11 @@
       "type": "component",
       "component": "custom.card",
       "repeatable": true
+    },
+    "button": {
+      "type": "component",
+      "component": "layout.button",
+      "repeatable": false
     }
   },
   "config": {}

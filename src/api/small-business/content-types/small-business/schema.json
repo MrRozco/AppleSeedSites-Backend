@@ -30,7 +30,10 @@
         "custom.hero",
         "custom.features",
         "custom.business-section",
-        "custom.about-section"
+        "custom.about-section",
+        "custom.steps",
+        "custom.faq",
+        "custom.lead-form"
       ]
     }
   }

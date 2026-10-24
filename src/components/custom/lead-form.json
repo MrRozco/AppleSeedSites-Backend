@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_custom_lead_forms",
+  "info": {
+    "displayName": "leadForm",
+    "description": "Free website plan form. The fields (name, business, email or phone, has a website) are fixed in the frontend; submissions are saved as Leads."
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "submitLabel": {
+      "type": "string",
+      "default": "Get My Free Plan"
+    },
+    "successTitle": {
+      "type": "string",
+      "default": "Thanks! Your free plan is on its way."
+    },
+    "successText": {
+      "type": "text",
+      "default": "We'll reach out within 1 business day by email or phone."
+    }
+  },
+  "config": {}
+}

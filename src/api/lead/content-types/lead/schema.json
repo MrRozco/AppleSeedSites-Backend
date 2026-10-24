@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "leads",
+  "info": {
+    "singularName": "lead",
+    "pluralName": "leads",
+    "displayName": "lead",
+    "description": "Submissions from the website's free plan form (custom.lead-form). Created by the Next.js /api/lead route with an API token."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "business": {
+      "type": "string",
+      "required": true
+    },
+    "contact": {
+      "type": "string",
+      "required": true
+    },
+    "hasWebsite": {
+      "type": "enumeration",
+      "enum": [
+        "yes",
+        "no"
+      ],
+      "required": true
+    },
+    "page": {
+      "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "new",
+        "contacted",
+        "won",
+        "lost"
+      ],
+      "default": "new"
+    },
+    "notes": {
+      "type": "text"
+    }
+  }
+}

@@ -393,6 +393,9 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
         'custom.our-work',
         'custom.features',
         'custom.business-section',
+        'custom.steps',
+        'custom.faq',
+        'custom.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -431,6 +434,9 @@ export interface ApiAiAi extends Struct.SingleTypeSchema {
         'custom.our-work',
         'custom.features',
         'custom.about-section',
+        'custom.steps',
+        'custom.faq',
+        'custom.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -470,6 +476,9 @@ export interface ApiContactContact extends Struct.SingleTypeSchema {
         'custom.features',
         'custom.business-section',
         'custom.contact-section',
+        'custom.steps',
+        'custom.faq',
+        'custom.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -513,6 +522,9 @@ export interface ApiECommerceECommerce extends Struct.SingleTypeSchema {
         'custom.contact-section',
         'custom.business-section',
         'custom.about-section',
+        'custom.steps',
+        'custom.faq',
+        'custom.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -587,6 +599,9 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
         'custom.performance',
         'custom.testimonials',
         'custom.pricing',
+        'custom.steps',
+        'custom.faq',
+        'custom.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -629,6 +644,9 @@ export interface ApiLandingPageLandingPage extends Struct.SingleTypeSchema {
         'custom.contact-section',
         'custom.business-section',
         'custom.about-section',
+        'custom.steps',
+        'custom.faq',
+        'custom.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -647,6 +665,40 @@ export interface ApiLandingPageLandingPage extends Struct.SingleTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     url: Schema.Attribute.String;
+  };
+}
+
+export interface ApiLeadLead extends Struct.CollectionTypeSchema {
+  collectionName: 'leads';
+  info: {
+    description: "Submissions from the website's free plan form (custom.lead-form). Created by the Next.js /api/lead route with an API token.";
+    displayName: 'lead';
+    pluralName: 'leads';
+    singularName: 'lead';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    business: Schema.Attribute.String & Schema.Attribute.Required;
+    contact: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    hasWebsite: Schema.Attribute.Enumeration<['yes', 'no']> &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::lead.lead'> &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    notes: Schema.Attribute.Text;
+    page: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    status: Schema.Attribute.Enumeration<['new', 'contacted', 'won', 'lost']> &
+      Schema.Attribute.DefaultTo<'new'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -673,6 +725,9 @@ export interface ApiMediumBusinessMediumBusiness
         'custom.contact-section',
         'custom.business-section',
         'custom.about-section',
+        'custom.steps',
+        'custom.faq',
+        'custom.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -743,6 +798,9 @@ export interface ApiPricingPricing extends Struct.SingleTypeSchema {
         'custom.pricing',
         'custom.features',
         'custom.about-section',
+        'custom.steps',
+        'custom.faq',
+        'custom.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -849,6 +907,9 @@ export interface ApiSeoSeo extends Struct.SingleTypeSchema {
         'custom.contact-section',
         'custom.business-section',
         'custom.about-section',
+        'custom.steps',
+        'custom.faq',
+        'custom.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -888,6 +949,9 @@ export interface ApiSmallBusinessSmallBusiness extends Struct.SingleTypeSchema {
         'custom.features',
         'custom.business-section',
         'custom.about-section',
+        'custom.steps',
+        'custom.faq',
+        'custom.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -931,6 +995,9 @@ export interface ApiTemplateTemplate extends Struct.SingleTypeSchema {
         'custom.contact-section',
         'custom.business-section',
         'custom.about-section',
+        'custom.steps',
+        'custom.faq',
+        'custom.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -1006,6 +1073,9 @@ export interface ApiTestimonialTestimonial extends Struct.SingleTypeSchema {
         'custom.features',
         'custom.about-section',
         'custom.business-section',
+        'custom.steps',
+        'custom.faq',
+        'custom.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -1049,6 +1119,9 @@ export interface ApiWebOpWebOp extends Struct.SingleTypeSchema {
         'custom.contact-section',
         'custom.business-section',
         'custom.about-section',
+        'custom.steps',
+        'custom.faq',
+        'custom.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -1586,6 +1659,7 @@ declare module '@strapi/strapi' {
       'api::footer.footer': ApiFooterFooter;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
+      'api::lead.lead': ApiLeadLead;
       'api::medium-business.medium-business': ApiMediumBusinessMediumBusiness;
       'api::navbar.navbar': ApiNavbarNavbar;
       'api::pricing.pricing': ApiPricingPricing;

@@ -18,8 +18,14 @@
     "title": {
       "type": "string"
     },
+    "tag": {
+      "type": "string"
+    },
     "description": {
       "type": "text"
+    },
+    "result": {
+      "type": "string"
     },
     "url": {
       "type": "string"

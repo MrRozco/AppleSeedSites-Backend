@@ -31,7 +31,10 @@
         "custom.features",
         "custom.contact-section",
         "custom.business-section",
-        "custom.about-section"
+        "custom.about-section",
+        "custom.steps",
+        "custom.faq",
+        "custom.lead-form"
       ]
     }
   }

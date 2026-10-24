@@ -25,7 +25,10 @@
         "custom.our-work",
         "custom.performance",
         "custom.testimonials",
-        "custom.pricing"
+        "custom.pricing",
+        "custom.steps",
+        "custom.faq",
+        "custom.lead-form"
       ]
     }
   }

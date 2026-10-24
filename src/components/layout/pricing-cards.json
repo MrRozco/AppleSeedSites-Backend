@@ -11,6 +11,9 @@
     "description": {
       "type": "text"
     },
+    "pointsIntro": {
+      "type": "string"
+    },
     "bulletPoint": {
       "type": "component",
       "component": "custom.bullet-point",
@@ -21,6 +24,9 @@
     },
     "priceText": {
       "type": "string"
+    },
+    "setupFee": {
+      "type": "decimal"
     },
     "cta": {
       "type": "component",

@@ -13,7 +13,8 @@
     "strapi": "strapi",
     "upgrade": "npx @strapi/upgrade latest",
     "upgrade:dry": "npx @strapi/upgrade latest --dry",
-    "seed:placeholders": "node scripts/seed-placeholders.js"
+    "seed:placeholders": "node scripts/seed-placeholders.js",
+    "seed:pricing": "node scripts/seed-pricing-and-forms.js"
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.22.0",

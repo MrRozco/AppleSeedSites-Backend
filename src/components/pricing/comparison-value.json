@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_pricing_comparison_values",
+  "info": {
+    "displayName": "comparisonValue",
+    "description": "This plan's value for one comparison row. Use ✓ or — for yes/no."
+  },
+  "options": {},
+  "attributes": {
+    "featureKey": {
+      "type": "string",
+      "required": true
+    },
+    "value": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

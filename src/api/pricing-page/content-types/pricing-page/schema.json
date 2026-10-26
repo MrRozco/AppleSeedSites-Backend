@@ -1,0 +1,85 @@
+{
+  "kind": "singleType",
+  "collectionName": "pricing_pages",
+  "info": {
+    "singularName": "pricing-page",
+    "pluralName": "pricing-pages",
+    "displayName": "Pricing page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "subheading": {
+      "type": "text"
+    },
+    "toggleUpfrontLabel": {
+      "type": "string"
+    },
+    "toggleZeroDownLabel": {
+      "type": "string"
+    },
+    "belowCardsNote": {
+      "type": "text"
+    },
+    "whichPlanHeading": {
+      "type": "string"
+    },
+    "whichPlan": {
+      "type": "component",
+      "component": "pricing.plan-match",
+      "repeatable": true
+    },
+    "comparisonFeatures": {
+      "type": "component",
+      "component": "pricing.comparison-feature",
+      "repeatable": true
+    },
+    "addOnsHeading": {
+      "type": "string"
+    },
+    "ecommerce": {
+      "type": "component",
+      "component": "shared.cta",
+      "repeatable": false
+    },
+    "costComparisonHeading": {
+      "type": "string"
+    },
+    "costComparison": {
+      "type": "component",
+      "component": "pricing.cost-row",
+      "repeatable": true
+    },
+    "guarantee": {
+      "type": "component",
+      "component": "shared.guarantee",
+      "repeatable": false
+    },
+    "faqHeading": {
+      "type": "string"
+    },
+    "faqs": {
+      "type": "component",
+      "component": "shared.faq",
+      "repeatable": true
+    },
+    "closingCta": {
+      "type": "component",
+      "component": "shared.cta",
+      "repeatable": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "kind": "singleType",
+  "collectionName": "lead_forms",
+  "info": {
+    "singularName": "lead-form",
+    "pluralName": "lead-forms",
+    "displayName": "Lead form",
+    "description": "Copy for the /contact form. needOptions is a JSON array of { value, label }; values must be lead.need enum values."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "subheading": {
+      "type": "text"
+    },
+    "nameLabel": {
+      "type": "string"
+    },
+    "contactLabel": {
+      "type": "string"
+    },
+    "contactPlaceholder": {
+      "type": "string"
+    },
+    "businessLabel": {
+      "type": "string"
+    },
+    "websiteLabel": {
+      "type": "string"
+    },
+    "websitePlaceholder": {
+      "type": "string"
+    },
+    "needLabel": {
+      "type": "string"
+    },
+    "needOptions": {
+      "type": "json"
+    },
+    "messageLabel": {
+      "type": "string"
+    },
+    "submitLabel": {
+      "type": "string"
+    },
+    "underButtonText": {
+      "type": "string"
+    },
+    "privacyText": {
+      "type": "string"
+    },
+    "nextStepsHeading": {
+      "type": "string"
+    },
+    "nextSteps": {
+      "type": "component",
+      "component": "shared.next-step",
+      "repeatable": true
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}

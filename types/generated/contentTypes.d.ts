@@ -414,6 +414,48 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAddOnAddOn extends Struct.CollectionTypeSchema {
+  collectionName: 'add_ons';
+  info: {
+    displayName: 'Add-on';
+    pluralName: 'add-ons';
+    singularName: 'add-on';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    link: Schema.Attribute.Component<'shared.link', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::add-on.add-on'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    price: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
+    priceNote: Schema.Attribute.String;
+    priceSuffix: Schema.Attribute.Enumeration<
+      ['one-time', 'per-month', 'each']
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    sortOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAiAi extends Struct.SingleTypeSchema {
   collectionName: 'ais';
   info: {
@@ -668,10 +710,56 @@ export interface ApiLandingPageLandingPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiLeadFormLeadForm extends Struct.SingleTypeSchema {
+  collectionName: 'lead_forms';
+  info: {
+    description: 'Copy for the /contact form. needOptions is a JSON array of { value, label }; values must be lead.need enum values.';
+    displayName: 'Lead form';
+    pluralName: 'lead-forms';
+    singularName: 'lead-form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    businessLabel: Schema.Attribute.String;
+    contactLabel: Schema.Attribute.String;
+    contactPlaceholder: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    eyebrow: Schema.Attribute.String;
+    heading: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::lead-form.lead-form'
+    > &
+      Schema.Attribute.Private;
+    messageLabel: Schema.Attribute.String;
+    nameLabel: Schema.Attribute.String;
+    needLabel: Schema.Attribute.String;
+    needOptions: Schema.Attribute.JSON;
+    nextSteps: Schema.Attribute.Component<'shared.next-step', true>;
+    nextStepsHeading: Schema.Attribute.String;
+    privacyText: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    subheading: Schema.Attribute.Text;
+    submitLabel: Schema.Attribute.String;
+    underButtonText: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    websiteLabel: Schema.Attribute.String;
+    websitePlaceholder: Schema.Attribute.String;
+  };
+}
+
 export interface ApiLeadLead extends Struct.CollectionTypeSchema {
   collectionName: 'leads';
   info: {
-    description: "Submissions from the website's free plan form (custom.lead-form). Created by the Next.js /api/lead route with an API token.";
+    description: 'Website form submissions. Created only by the Next.js /api/lead route with a create-only API token. No public permissions. IP addresses are never stored.';
     displayName: 'lead';
     pluralName: 'leads';
     singularName: 'lead';
@@ -680,25 +768,87 @@ export interface ApiLeadLead extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    business: Schema.Attribute.String & Schema.Attribute.Required;
-    contact: Schema.Attribute.String & Schema.Attribute.Required;
+    business: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 160;
+      }>;
+    contact: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    hasWebsite: Schema.Attribute.Enumeration<['yes', 'no']> &
-      Schema.Attribute.Required;
+    hasWebsite: Schema.Attribute.Enumeration<['yes', 'no']>;
+    intent: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 80;
+      }>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::lead.lead'> &
       Schema.Attribute.Private;
-    name: Schema.Attribute.String & Schema.Attribute.Required;
+    message: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 3000;
+      }>;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 120;
+      }>;
+    need: Schema.Attribute.Enumeration<
+      [
+        'new-website',
+        'fix-site',
+        'online-store',
+        'landing-page',
+        'local-seo',
+        'site-review',
+        'site-audit',
+        'preview',
+        'not-sure',
+      ]
+    >;
     notes: Schema.Attribute.Text;
     page: Schema.Attribute.String;
+    plan: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 80;
+      }>;
     publishedAt: Schema.Attribute.DateTime;
-    status: Schema.Attribute.Enumeration<['new', 'contacted', 'won', 'lost']> &
+    sourcePage: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
+    status: Schema.Attribute.Enumeration<
+      ['new', 'contacted', 'proposal-sent', 'won', 'lost']
+    > &
       Schema.Attribute.DefaultTo<'new'>;
+    template: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 80;
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    utmCampaign: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 120;
+      }>;
+    utmMedium: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 120;
+      }>;
+    utmSource: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 120;
+      }>;
+    website: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 300;
+      }>;
   };
 }
 
@@ -778,6 +928,131 @@ export interface ApiNavbarNavbar extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPlanPlan extends Struct.CollectionTypeSchema {
+  collectionName: 'plans';
+  info: {
+    description: 'Monthly website plans (Spark, Elevate, Momentum). Prices in whole dollars.';
+    displayName: 'Plan';
+    pluralName: 'plans';
+    singularName: 'plan';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    badge: Schema.Attribute.String;
+    bestFor: Schema.Attribute.Text;
+    comparisonValues: Schema.Attribute.Component<
+      'pricing.comparison-value',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ctaLabel: Schema.Attribute.String;
+    features: Schema.Attribute.Component<'shared.feature', true>;
+    includesPrevious: Schema.Attribute.String;
+    isHighlighted: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::plan.plan'> &
+      Schema.Attribute.Private;
+    monthlyPrice: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    setupFee: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
+    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
+    sortOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    teaserFeatures: Schema.Attribute.Component<'shared.feature', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+        },
+        number
+      >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    zeroDownMonthly: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
+    zeroDownMonths: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<12>;
+  };
+}
+
+export interface ApiPricingPagePricingPage extends Struct.SingleTypeSchema {
+  collectionName: 'pricing_pages';
+  info: {
+    displayName: 'Pricing page';
+    pluralName: 'pricing-pages';
+    singularName: 'pricing-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    addOnsHeading: Schema.Attribute.String;
+    belowCardsNote: Schema.Attribute.Text;
+    closingCta: Schema.Attribute.Component<'shared.cta', false>;
+    comparisonFeatures: Schema.Attribute.Component<
+      'pricing.comparison-feature',
+      true
+    >;
+    costComparison: Schema.Attribute.Component<'pricing.cost-row', true>;
+    costComparisonHeading: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ecommerce: Schema.Attribute.Component<'shared.cta', false>;
+    eyebrow: Schema.Attribute.String;
+    faqHeading: Schema.Attribute.String;
+    faqs: Schema.Attribute.Component<'shared.faq', true>;
+    guarantee: Schema.Attribute.Component<'shared.guarantee', false>;
+    heading: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pricing-page.pricing-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    subheading: Schema.Attribute.Text;
+    toggleUpfrontLabel: Schema.Attribute.String;
+    toggleZeroDownLabel: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    whichPlan: Schema.Attribute.Component<'pricing.plan-match', true>;
+    whichPlanHeading: Schema.Attribute.String;
   };
 }
 
@@ -1094,6 +1369,40 @@ export interface ApiTestimonialTestimonial extends Struct.SingleTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     url: Schema.Attribute.String;
+  };
+}
+
+export interface ApiThankYouPageThankYouPage extends Struct.SingleTypeSchema {
+  collectionName: 'thank_you_pages';
+  info: {
+    displayName: 'Thank-you page';
+    pluralName: 'thank-you-pages';
+    singularName: 'thank-you-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    body: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heading: Schema.Attribute.String;
+    links: Schema.Attribute.Component<'shared.link', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::thank-you-page.thank-you-page'
+    > &
+      Schema.Attribute.Private;
+    prepareHeading: Schema.Attribute.String;
+    prepareList: Schema.Attribute.Component<'shared.feature', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    schedulerUrl: Schema.Attribute.String;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1653,15 +1962,19 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
+      'api::add-on.add-on': ApiAddOnAddOn;
       'api::ai.ai': ApiAiAi;
       'api::contact.contact': ApiContactContact;
       'api::e-commerce.e-commerce': ApiECommerceECommerce;
       'api::footer.footer': ApiFooterFooter;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
+      'api::lead-form.lead-form': ApiLeadFormLeadForm;
       'api::lead.lead': ApiLeadLead;
       'api::medium-business.medium-business': ApiMediumBusinessMediumBusiness;
       'api::navbar.navbar': ApiNavbarNavbar;
+      'api::plan.plan': ApiPlanPlan;
+      'api::pricing-page.pricing-page': ApiPricingPagePricingPage;
       'api::pricing.pricing': ApiPricingPricing;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::section.section': ApiSectionSection;
@@ -1670,6 +1983,7 @@ declare module '@strapi/strapi' {
       'api::template.template': ApiTemplateTemplate;
       'api::terms-of-service.terms-of-service': ApiTermsOfServiceTermsOfService;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
+      'api::thank-you-page.thank-you-page': ApiThankYouPageThankYouPage;
       'api::web-op.web-op': ApiWebOpWebOp;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

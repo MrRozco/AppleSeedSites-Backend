@@ -381,6 +381,143 @@ export interface MenuMenuLink extends Struct.ComponentSchema {
   };
 }
 
+export interface PricingComparisonFeature extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_comparison_features';
+  info: {
+    description: 'A row in the plan comparison table. key must be unique on the page and match plan.comparisonValues.featureKey.';
+    displayName: 'comparisonFeature';
+  };
+  attributes: {
+    key: Schema.Attribute.String & Schema.Attribute.Required;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface PricingComparisonValue extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_comparison_values';
+  info: {
+    description: "This plan's value for one comparison row. Use \u2713 or \u2014 for yes/no.";
+    displayName: 'comparisonValue';
+  };
+  attributes: {
+    featureKey: Schema.Attribute.String & Schema.Attribute.Required;
+    value: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface PricingCostRow extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_cost_rows';
+  info: {
+    displayName: 'costRow';
+  };
+  attributes: {
+    option: Schema.Attribute.String;
+    outcome: Schema.Attribute.String;
+    price: Schema.Attribute.String;
+  };
+}
+
+export interface PricingPlanMatch extends Struct.ComponentSchema {
+  collectionName: 'components_pricing_plan_matchs';
+  info: {
+    displayName: 'planMatch';
+  };
+  attributes: {
+    linkHref: Schema.Attribute.String;
+    linkLabel: Schema.Attribute.String;
+    planSlug: Schema.Attribute.String;
+    situation: Schema.Attribute.String;
+  };
+}
+
+export interface SharedCta extends Struct.ComponentSchema {
+  collectionName: 'components_shared_ctas';
+  info: {
+    displayName: 'cta';
+  };
+  attributes: {
+    body: Schema.Attribute.Text;
+    heading: Schema.Attribute.String;
+    primaryHref: Schema.Attribute.String;
+    primaryLabel: Schema.Attribute.String;
+    secondaryHref: Schema.Attribute.String;
+    secondaryLabel: Schema.Attribute.String;
+  };
+}
+
+export interface SharedFaq extends Struct.ComponentSchema {
+  collectionName: 'components_shared_faqs';
+  info: {
+    displayName: 'faq';
+  };
+  attributes: {
+    answer: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    question: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedFeature extends Struct.ComponentSchema {
+  collectionName: 'components_shared_features';
+  info: {
+    displayName: 'feature';
+  };
+  attributes: {
+    text: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedGuarantee extends Struct.ComponentSchema {
+  collectionName: 'components_shared_guarantees';
+  info: {
+    displayName: 'guarantee';
+  };
+  attributes: {
+    body: Schema.Attribute.Text;
+    heading: Schema.Attribute.String;
+  };
+}
+
+export interface SharedLink extends Struct.ComponentSchema {
+  collectionName: 'components_shared_links';
+  info: {
+    displayName: 'link';
+  };
+  attributes: {
+    href: Schema.Attribute.String;
+    label: Schema.Attribute.String;
+  };
+}
+
+export interface SharedNextStep extends Struct.ComponentSchema {
+  collectionName: 'components_shared_next_steps';
+  info: {
+    description: 'A numbered step, e.g. in the lead form\'s "What happens next".';
+    displayName: 'nextStep';
+  };
+  attributes: {
+    text: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SharedSeo extends Struct.ComponentSchema {
+  collectionName: 'components_shared_seos';
+  info: {
+    displayName: 'seo';
+  };
+  attributes: {
+    metaDescription: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 160;
+      }>;
+    metaTitle: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 60;
+      }>;
+    noIndex: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -411,6 +548,17 @@ declare module '@strapi/strapi' {
       'menu.link': MenuLink;
       'menu.menu-button': MenuMenuButton;
       'menu.menu-link': MenuMenuLink;
+      'pricing.comparison-feature': PricingComparisonFeature;
+      'pricing.comparison-value': PricingComparisonValue;
+      'pricing.cost-row': PricingCostRow;
+      'pricing.plan-match': PricingPlanMatch;
+      'shared.cta': SharedCta;
+      'shared.faq': SharedFaq;
+      'shared.feature': SharedFeature;
+      'shared.guarantee': SharedGuarantee;
+      'shared.link': SharedLink;
+      'shared.next-step': SharedNextStep;
+      'shared.seo': SharedSeo;
     }
   }
 }

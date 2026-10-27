@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_pricing_plan_matchs",
+  "info": {
+    "displayName": "planMatch"
+  },
+  "options": {},
+  "attributes": {
+    "situation": {
+      "type": "string"
+    },
+    "planSlug": {
+      "type": "string"
+    },
+    "linkLabel": {
+      "type": "string"
+    },
+    "linkHref": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

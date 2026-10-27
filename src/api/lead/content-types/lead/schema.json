@@ -5,7 +5,7 @@
     "singularName": "lead",
     "pluralName": "leads",
     "displayName": "lead",
-    "description": "Submissions from the website's free plan form (custom.lead-form). Created by the Next.js /api/lead route with an API token."
+    "description": "Website form submissions. Created only by the Next.js /api/lead route with a create-only API token. No public permissions. IP addresses are never stored."
   },
   "options": {
     "draftAndPublish": false
@@ -14,23 +14,75 @@
   "attributes": {
     "name": {
       "type": "string",
-      "required": true
-    },
-    "business": {
-      "type": "string",
-      "required": true
+      "required": true,
+      "maxLength": 120
     },
     "contact": {
       "type": "string",
-      "required": true
+      "required": true,
+      "maxLength": 200
+    },
+    "business": {
+      "type": "string",
+      "required": true,
+      "maxLength": 160
+    },
+    "website": {
+      "type": "string",
+      "maxLength": 300
+    },
+    "need": {
+      "type": "enumeration",
+      "enum": [
+        "new-website",
+        "fix-site",
+        "online-store",
+        "landing-page",
+        "local-seo",
+        "site-review",
+        "site-audit",
+        "preview",
+        "not-sure"
+      ]
+    },
+    "message": {
+      "type": "text",
+      "maxLength": 3000
+    },
+    "plan": {
+      "type": "string",
+      "maxLength": 80
+    },
+    "template": {
+      "type": "string",
+      "maxLength": 80
+    },
+    "intent": {
+      "type": "string",
+      "maxLength": 80
+    },
+    "sourcePage": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "utmSource": {
+      "type": "string",
+      "maxLength": 120
+    },
+    "utmMedium": {
+      "type": "string",
+      "maxLength": 120
+    },
+    "utmCampaign": {
+      "type": "string",
+      "maxLength": 120
     },
     "hasWebsite": {
       "type": "enumeration",
       "enum": [
         "yes",
         "no"
-      ],
-      "required": true
+      ]
     },
     "page": {
       "type": "string"
@@ -40,6 +92,7 @@
       "enum": [
         "new",
         "contacted",
+        "proposal-sent",
         "won",
         "lost"
       ],

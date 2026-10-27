@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "plans",
+  "info": {
+    "singularName": "plan",
+    "pluralName": "plans",
+    "displayName": "Plan",
+    "description": "Monthly website plans (Spark, Elevate, Momentum). Prices in whole dollars."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "bestFor": {
+      "type": "text"
+    },
+    "monthlyPrice": {
+      "type": "integer",
+      "required": true,
+      "min": 0
+    },
+    "setupFee": {
+      "type": "integer",
+      "required": true,
+      "min": 0
+    },
+    "zeroDownMonthly": {
+      "type": "integer",
+      "required": true,
+      "min": 0
+    },
+    "zeroDownMonths": {
+      "type": "integer",
+      "default": 12,
+      "min": 1
+    },
+    "includesPrevious": {
+      "type": "string"
+    },
+    "features": {
+      "type": "component",
+      "component": "shared.feature",
+      "repeatable": true
+    },
+    "teaserFeatures": {
+      "type": "component",
+      "component": "shared.feature",
+      "repeatable": true,
+      "max": 3
+    },
+    "badge": {
+      "type": "string"
+    },
+    "isHighlighted": {
+      "type": "boolean",
+      "default": false
+    },
+    "ctaLabel": {
+      "type": "string"
+    },
+    "comparisonValues": {
+      "type": "component",
+      "component": "pricing.comparison-value",
+      "repeatable": true
+    },
+    "sortOrder": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

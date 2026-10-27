@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "thank_you_pages",
+  "info": {
+    "singularName": "thank-you-page",
+    "pluralName": "thank-you-pages",
+    "displayName": "Thank-you page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "body": {
+      "type": "text"
+    },
+    "schedulerUrl": {
+      "type": "string"
+    },
+    "prepareHeading": {
+      "type": "string"
+    },
+    "prepareList": {
+      "type": "component",
+      "component": "shared.feature",
+      "repeatable": true
+    },
+    "links": {
+      "type": "component",
+      "component": "shared.link",
+      "repeatable": true
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}

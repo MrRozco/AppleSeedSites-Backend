@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_shared_next_steps",
+  "info": {
+    "displayName": "nextStep",
+    "description": "A numbered step, e.g. in the lead form's \"What happens next\"."
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

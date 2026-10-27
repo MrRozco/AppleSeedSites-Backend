@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_pricing_cost_rows",
+  "info": {
+    "displayName": "costRow"
+  },
+  "options": {},
+  "attributes": {
+    "option": {
+      "type": "string"
+    },
+    "price": {
+      "type": "string"
+    },
+    "outcome": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

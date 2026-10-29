@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_menu_dropdowns",
+  "info": {
+    "displayName": "Dropdown",
+    "description": "With mega menu columns it opens a mega menu; otherwise it lists the links.",
+    "icon": "arrowDown"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "sections": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::section.section"
+    },
+    "links": {
+      "type": "component",
+      "component": "navigation.link",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

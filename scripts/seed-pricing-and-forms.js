@@ -1,7 +1,8 @@
 /**
  * Seeds placeholder content for pricing and the lead-form system:
  * plans, add-ons, and the pricing-page, lead-form and thank-you-page single types.
- * Also grants the Public role read access to those types (and removes any public access to leads).
+ * Also removes any public access to leads (read access for the site is granted on every
+ * startup by src/public-permissions.ts).
  *
  *   npm run seed:pricing                (local development)
  *   npm run seed:pricing -- --force     (required when NODE_ENV=production or the DB isn't local SQLite)
@@ -17,7 +18,6 @@ const FORCE = process.argv.includes("--force");
 /* ---------- placeholder content ---------- */
 
 const features = (list) => list.map((text) => ({ text }));
-const blocks = (text) => [{ type: "paragraph", children: [{ type: "text", text }] }];
 
 const COMPARISON = [
   // key, label, Spark, Elevate, Momentum
@@ -119,7 +119,7 @@ const ADD_ONS = [
     priceSuffix: "per-month",
     priceNote: null,
     description: "Google Business Profile management, citations, 1 local page or post a month, and a rank report. For Spark and Elevate.",
-    link: { label: "How local SEO works", href: "/seo" },
+    link: { label: "How local SEO works", url: "/seo" },
     sortOrder: 1,
   },
   {
@@ -128,7 +128,7 @@ const ADD_ONS = [
     priceSuffix: "per-month",
     priceNote: null,
     description: "10 custom graphics and 1 short promo video every month.",
-    link: { label: "See examples", href: "/ai" },
+    link: { label: "See examples", url: "/ai" },
     sortOrder: 2,
   },
   {
@@ -137,7 +137,7 @@ const ADD_ONS = [
     priceSuffix: "one-time",
     priceNote: "Standalone pages add $19/mo hosting",
     description: "One focused page for an ad, promo, or event.",
-    link: { label: "Explore landing pages", href: "/landing-page" },
+    link: { label: "Explore landing pages", url: "/landing-page" },
     sortOrder: 3,
   },
   {
@@ -146,7 +146,7 @@ const ADD_ONS = [
     priceSuffix: "one-time",
     priceNote: null,
     description: "A deep report with competitor benchmarks and a ranked fix list. Credited in full toward setup if you sign within 30 days.",
-    link: { label: "What's in an audit", href: "/web-ops" },
+    link: { label: "What's in an audit", url: "/web-ops" },
     sortOrder: 4,
   },
   {
@@ -161,81 +161,94 @@ const ADD_ONS = [
 ];
 
 const PRICING_PAGE = {
-  eyebrow: "Pricing",
-  heading: "Simple monthly plans. No surprise bills.",
-  subheading: "Every plan includes hosting, security, backups, and updates. Pay setup upfront, or start with $0 down.",
-  toggleUpfrontLabel: "Pay setup upfront",
-  toggleZeroDownLabel: "$0 down",
-  belowCardsNote:
-    "A change request is any edit under 30 minutes; bigger changes are quoted first. Month-to-month after setup. Cancel with 30 days' notice.",
-  whichPlanHeading: "Which plan is right for me?",
-  whichPlan: [
-    {
-      situation: "A landscaper, cleaner, groomer, or contractor who needs calls",
-      planSlug: "spark",
-      linkLabel: "See service business websites",
-      linkHref: "/small-business",
-    },
-    {
-      situation: "A restaurant, salon, or gym whose menu, prices, or schedule change often",
-      planSlug: "elevate",
-      linkLabel: "See restaurant, salon & gym websites",
-      linkHref: "/medium-business",
-    },
-    {
-      situation: "Competing with other local businesses for the top of Google Maps",
-      planSlug: "momentum",
-      linkLabel: "See how local SEO works",
-      linkHref: "/seo",
-    },
-    { situation: "Not sure", planSlug: null, linkLabel: "Get My Free Website Plan", linkHref: "/contact?from=pricing-help" },
-  ],
-  comparisonFeatures: COMPARISON.map(([key, label]) => ({ key, label })),
-  addOnsHeading: "Add-ons",
-  ecommerce: {
-    heading: "Online stores",
-    body: "Custom stores start at $2,497 setup + $249/month. Every store is quoted after a free call.",
-    primaryLabel: "Get an E-Commerce Quote",
-    primaryHref: "/contact?intent=store&from=pricing",
-    secondaryLabel: "See e-commerce websites",
-    secondaryHref: "/e-commerce",
+  hero: {
+    eyebrow: "Pricing",
+    title: "Simple monthly plans. No surprise bills.",
+    description: "Every plan includes hosting, security, backups, and updates. Pay setup upfront, or start with $0 down.",
+    upfrontLabel: "Pay setup upfront",
+    zeroDownLabel: "$0 down",
+    belowCardsNote:
+      "A change request is any edit under 30 minutes; bigger changes are quoted first. Month-to-month after setup. Cancel with 30 days' notice.",
   },
-  costComparisonHeading: "What a website really costs",
-  costComparison: [
-    { option: "Do it yourself", price: "$20–$40/mo, plus 30–60 hours of your time", outcome: "A template site you maintain yourself" },
-    { option: "Traditional agency", price: "$3,000–$7,000+ upfront", outcome: "A finished site, then hourly bills for every change" },
-    { option: "AppleSeed Sites", price: "From $99/mo", outcome: "A custom site, plus a developer who keeps it fast and updated" },
-  ],
+  planFinder: {
+    title: "Which plan is right for me?",
+    matches: [
+      {
+        situation: "A landscaper, cleaner, groomer, or contractor who needs calls",
+        planSlug: "spark",
+        linkLabel: "See service business websites",
+        linkUrl: "/small-business",
+      },
+      {
+        situation: "A restaurant, salon, or gym whose menu, prices, or schedule change often",
+        planSlug: "elevate",
+        linkLabel: "See restaurant, salon & gym websites",
+        linkUrl: "/medium-business",
+      },
+      {
+        situation: "Competing with other local businesses for the top of Google Maps",
+        planSlug: "momentum",
+        linkLabel: "See how local SEO works",
+        linkUrl: "/seo",
+      },
+      { situation: "Not sure", planSlug: null, linkLabel: "Get My Free Website Plan", linkUrl: "/contact?from=pricing-help" },
+    ],
+  },
+  comparison: {
+    title: "Compare every feature",
+    features: COMPARISON.map(([key, label]) => ({ key, label })),
+  },
+  addOns: {
+    title: "Add-ons",
+    cta: {
+      title: "Online stores",
+      description: "Custom stores start at $2,497 setup + $249/month. Every store is quoted after a free call.",
+      primaryLabel: "Get an E-Commerce Quote",
+      primaryUrl: "/contact?intent=store&from=pricing",
+      secondaryLabel: "See e-commerce websites",
+      secondaryUrl: "/e-commerce",
+    },
+  },
+  costComparison: {
+    title: "What a website really costs",
+    rows: [
+      { option: "Do it yourself", price: "$20–$40/mo, plus 30–60 hours of your time", outcome: "A template site you maintain yourself" },
+      { option: "Traditional agency", price: "$3,000–$7,000+ upfront", outcome: "A finished site, then hourly bills for every change" },
+      { option: "AppleSeed Sites", price: "From $99/mo", outcome: "A custom site, plus a developer who keeps it fast and updated" },
+    ],
+  },
   guarantee: {
-    heading: "Love your design, or you don't pay setup.",
-    body: "If you're not happy with your homepage design after 2 rounds of revisions, I'll refund your setup fee in full.",
+    title: "Love your design, or you don't pay setup.",
+    description: "If you're not happy with your homepage design after 2 rounds of revisions, I'll refund your setup fee in full.",
   },
-  faqHeading: "Pricing questions",
-  faqs: [
-    [
-      "What counts as a change request?",
-      "Any edit that takes under 30 minutes: new hours, photos, prices, text, or a new team member. Bigger work, like a new page or feature, is quoted before I start.",
-    ],
-    [
-      "What happens if I cancel?",
-      "Once setup is paid, cancel with 30 days' notice. Your domain and content stay yours, and you can buy the site's code for a one-time fee equal to your setup fee.",
-    ],
-    [
-      "How does $0 down work?",
-      "Your setup fee is spread over your first 12 months. After that, you pay the regular monthly price. Cancel early and you owe only the unpaid part of the setup fee.",
-    ],
-    ["Do I own my domain and content?", "Yes. Your domain is registered in your name, and your text, photos, and logo are always yours."],
-    ["Can I switch plans?", "Yes. Upgrade anytime; you pay only the difference in setup. Downgrades take effect next billing month."],
-    ["Are hosting and SSL extra?", "No. Hosting, SSL, backups, and security updates are included in every plan."],
-    ["How long until my site is live?", "About 2 weeks for Spark, 3 for Elevate, and 4 for Momentum, once I have your content."],
-  ].map(([question, answer]) => ({ question, answer: blocks(answer) })),
+  faq: {
+    title: "Pricing questions",
+    items: [
+      [
+        "What counts as a change request?",
+        "Any edit that takes under 30 minutes: new hours, photos, prices, text, or a new team member. Bigger work, like a new page or feature, is quoted before I start.",
+      ],
+      [
+        "What happens if I cancel?",
+        "Once setup is paid, cancel with 30 days' notice. Your domain and content stay yours, and you can buy the site's code for a one-time fee equal to your setup fee.",
+      ],
+      [
+        "How does $0 down work?",
+        "Your setup fee is spread over your first 12 months. After that, you pay the regular monthly price. Cancel early and you owe only the unpaid part of the setup fee.",
+      ],
+      ["Do I own my domain and content?", "Yes. Your domain is registered in your name, and your text, photos, and logo are always yours."],
+      ["Can I switch plans?", "Yes. Upgrade anytime; you pay only the difference in setup. Downgrades take effect next billing month."],
+      ["Are hosting and SSL extra?", "No. Hosting, SSL, backups, and security updates are included in every plan."],
+      ["How long until my site is live?", "About 2 weeks for Spark, 3 for Elevate, and 4 for Momentum, once I have your content."],
+    ].map(([question, answer]) => ({ question, answer })),
+  },
   closingCta: {
-    heading: "Not sure which plan fits?",
-    body: "Tell me about your business and I'll recommend one, free.",
+    title: "Not sure which plan fits?",
+    description: "Tell me about your business and I'll recommend one, free.",
     primaryLabel: "Get My Free Website Plan",
-    primaryHref: "/contact?from=pricing",
+    primaryUrl: "/contact?from=pricing",
     secondaryLabel: "Call (240) 276-0695",
-    secondaryHref: "tel:+12402760695",
+    secondaryUrl: "tel:+12402760695",
   },
   seo: {
     metaTitle: "Website Pricing for DMV Small Businesses | AppleSeed Sites",
@@ -245,36 +258,42 @@ const PRICING_PAGE = {
 };
 
 const LEAD_FORM = {
-  eyebrow: "Free, no obligation",
-  heading: "Get your free website plan.",
-  subheading:
-    "Tell me about your business. Within 1 business day, I'll reply with a recommended plan, price, and timeline. No pressure.",
-  nameLabel: "Name",
-  contactLabel: "Email or phone",
-  contactPlaceholder: "How should I reach you?",
-  businessLabel: "Business name",
-  websiteLabel: "Current website",
-  websitePlaceholder: "Leave blank if you don't have one",
-  needLabel: "What do you need?",
-  needOptions: [
-    { value: "new-website", label: "New website" },
-    { value: "fix-site", label: "Fix my current site" },
-    { value: "online-store", label: "Online store" },
-    { value: "landing-page", label: "Landing page" },
-    { value: "local-seo", label: "Local SEO" },
-    { value: "site-review", label: "Free site review" },
-    { value: "not-sure", label: "Not sure yet" },
-  ],
-  messageLabel: "Anything else I should know?",
-  submitLabel: "Get My Free Website Plan",
-  underButtonText: "I reply within 1 business day.",
-  privacyText: "By submitting, you agree to our Privacy Policy.",
-  nextStepsHeading: "What happens next",
-  nextSteps: [
-    { title: "I review your business", text: "I look at your business, your competitors, and your current site if you have one." },
-    { title: "You get a plan", text: "A recommended plan, price, and timeline, by email or on a quick call." },
-    { title: "You decide", text: "Nothing starts until you say go. No pressure, no follow-up spam." },
-  ],
+  hero: {
+    eyebrow: "Free, no obligation",
+    title: "Get your free website plan.",
+    description:
+      "Tell me about your business. Within 1 business day, I'll reply with a recommended plan, price, and timeline. No pressure.",
+  },
+  form: {
+    nameLabel: "Name",
+    contactLabel: "Email or phone",
+    contactPlaceholder: "How should I reach you?",
+    businessLabel: "Business name",
+    websiteLabel: "Current website",
+    websitePlaceholder: "Leave blank if you don't have one",
+    needLabel: "What do you need?",
+    needOptions: [
+      { value: "new-website", label: "New website" },
+      { value: "fix-site", label: "Fix my current site" },
+      { value: "online-store", label: "Online store" },
+      { value: "landing-page", label: "Landing page" },
+      { value: "local-seo", label: "Local SEO" },
+      { value: "site-review", label: "Free site review" },
+      { value: "not-sure", label: "Not sure yet" },
+    ],
+    messageLabel: "Anything else I should know?",
+    submitLabel: "Get My Free Website Plan",
+    underButtonText: "I reply within 1 business day.",
+    privacyText: "By submitting, you agree to our Privacy Policy.",
+  },
+  nextSteps: {
+    title: "What happens next",
+    steps: [
+      { title: "I review your business", body: "I look at your business, your competitors, and your current site if you have one." },
+      { title: "You get a plan", body: "A recommended plan, price, and timeline, by email or on a quick call." },
+      { title: "You decide", body: "Nothing starts until you say go. No pressure, no follow-up spam." },
+    ],
+  },
   seo: {
     metaTitle: "Get a Free Website Plan | AppleSeed Sites, Maryland",
     metaDescription: "Tell me about your business and get a free website plan within 1 business day. Or call (240) 276-0695.",
@@ -283,30 +302,25 @@ const LEAD_FORM = {
 };
 
 const THANK_YOU_PAGE = {
-  heading: "Got it. I'll be in touch within 1 business day.",
-  body: "Want to skip the wait? Book a 15-minute call now.",
+  hero: {
+    title: "Got it. I'll be in touch within 1 business day.",
+    description: "Want to skip the wait? Book a 15-minute call now.",
+  },
   schedulerUrl: "https://cal.com/PLACEHOLDER",
-  prepareHeading: "What to have ready for our call",
-  prepareList: features([
-    "Your business name and services",
-    "A few websites you like",
-    "Your logo and photos, if you have them",
-    "Your current website login, if you have one",
-  ]),
+  prepare: {
+    title: "What to have ready for our call",
+    items: features([
+      "Your business name and services",
+      "A few websites you like",
+      "Your logo and photos, if you have them",
+      "Your current website login, if you have one",
+    ]),
+  },
   links: [
-    { label: "Browse live templates", href: "/templates" },
-    { label: "Read client results", href: "/testimonials" },
+    { label: "Browse live templates", url: "/templates" },
+    { label: "Read client results", url: "/testimonials" },
   ],
   seo: { metaTitle: "Thanks | AppleSeed Sites", metaDescription: null, noIndex: true },
-};
-
-/** Public role: read-only access to the new content. Leads get no public access at all. */
-const PUBLIC_READ = {
-  "api::plan.plan": ["find", "findOne"],
-  "api::add-on.add-on": ["find", "findOne"],
-  "api::pricing-page.pricing-page": ["find"],
-  "api::lead-form.lead-form": ["find"],
-  "api::thank-you-page.thank-you-page": ["find"],
 };
 
 /* ---------- helpers ---------- */
@@ -332,22 +346,11 @@ async function upsertSingle(strapi, uid, data) {
   await save(strapi, uid, existing, data, uid);
 }
 
-async function setPublicPermissions(strapi) {
+/** Leads are written only by the site's API token; the Public role must never read them. */
+async function removePublicLeadAccess(strapi) {
   const role = await strapi.db.query("plugin::users-permissions.role").findOne({ where: { type: "public" } });
-  if (!role) {
-    console.log("  no Public role found, skipped permissions");
-    return;
-  }
+  if (!role) return;
   const permissions = strapi.db.query("plugin::users-permissions.permission");
-  for (const [uid, actions] of Object.entries(PUBLIC_READ)) {
-    for (const action of actions) {
-      const name = `${uid}.${action}`;
-      const existing = await permissions.findOne({ where: { action: name, role: role.id } });
-      if (existing) continue;
-      await permissions.create({ data: { action: name, role: role.id } });
-      console.log(`  granted Public ${name}`);
-    }
-  }
   const leadPerms = await permissions.findMany({ where: { action: { $startsWith: "api::lead.lead." }, role: role.id } });
   for (const p of leadPerms) {
     await permissions.delete({ where: { id: p.id } });
@@ -381,7 +384,7 @@ async function main() {
   await upsertSingle(strapi, "api::lead-form.lead-form", LEAD_FORM);
   await upsertSingle(strapi, "api::thank-you-page.thank-you-page", THANK_YOU_PAGE);
   console.log("Permissions:");
-  await setPublicPermissions(strapi);
+  await removePublicLeadAccess(strapi);
   console.log("Done.");
 
   await strapi.destroy();

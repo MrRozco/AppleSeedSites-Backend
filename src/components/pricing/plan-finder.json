@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_pricing_plan_finders",
+  "info": {
+    "displayName": "Plan finder",
+    "description": "\"Which plan is right for me?\" rows.",
+    "icon": "search"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "matches": {
+      "type": "component",
+      "component": "pricing.plan-match",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

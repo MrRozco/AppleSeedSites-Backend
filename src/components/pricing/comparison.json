@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_pricing_comparisons",
+  "info": {
+    "displayName": "Comparison table",
+    "description": "Rows of the plan comparison table. Each plan fills in its values under Plans → Comparison values.",
+    "icon": "grid"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Compare every feature"
+    },
+    "features": {
+      "type": "component",
+      "component": "pricing.comparison-feature",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

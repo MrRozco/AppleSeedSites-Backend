@@ -1,8 +1,9 @@
 {
   "collectionName": "components_pricing_comparison_values",
   "info": {
-    "displayName": "comparisonValue",
-    "description": "This plan's value for one comparison row. Use ✓ or — for yes/no."
+    "displayName": "Comparison value",
+    "description": "This plan's value for one comparison row. Use ✓ or — for yes/no.",
+    "icon": "check"
   },
   "options": {},
   "attributes": {

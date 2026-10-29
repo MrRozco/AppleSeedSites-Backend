@@ -4,66 +4,28 @@
   "info": {
     "singularName": "lead-form",
     "pluralName": "lead-forms",
-    "displayName": "Lead form",
-    "description": "Copy for the /contact form. needOptions is a JSON array of { value, label }; values must be lead.need enum values."
+    "displayName": "Page · Contact",
+    "description": "/contact, and the field labels for every Lead form section on the site."
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "eyebrow": {
-      "type": "string"
+    "hero": {
+      "type": "component",
+      "component": "shared.page-intro",
+      "repeatable": false
     },
-    "heading": {
-      "type": "string"
-    },
-    "subheading": {
-      "type": "text"
-    },
-    "nameLabel": {
-      "type": "string"
-    },
-    "contactLabel": {
-      "type": "string"
-    },
-    "contactPlaceholder": {
-      "type": "string"
-    },
-    "businessLabel": {
-      "type": "string"
-    },
-    "websiteLabel": {
-      "type": "string"
-    },
-    "websitePlaceholder": {
-      "type": "string"
-    },
-    "needLabel": {
-      "type": "string"
-    },
-    "needOptions": {
-      "type": "json"
-    },
-    "messageLabel": {
-      "type": "string"
-    },
-    "submitLabel": {
-      "type": "string"
-    },
-    "underButtonText": {
-      "type": "string"
-    },
-    "privacyText": {
-      "type": "string"
-    },
-    "nextStepsHeading": {
-      "type": "string"
+    "form": {
+      "type": "component",
+      "component": "forms.lead-form-fields",
+      "repeatable": false
     },
     "nextSteps": {
       "type": "component",
-      "component": "shared.next-step",
-      "repeatable": true
+      "component": "sections.steps",
+      "repeatable": false
     },
     "seo": {
       "type": "component",

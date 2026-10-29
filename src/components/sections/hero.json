@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_custom_heroes",
+  "info": {
+    "displayName": "Hero",
+    "description": "Top of the page. The title is the page's only H1. The first button is the main call to action.",
+    "icon": "star"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "buttons": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": true
+    },
+    "trustItems": {
+      "type": "component",
+      "component": "elements.trust-item",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

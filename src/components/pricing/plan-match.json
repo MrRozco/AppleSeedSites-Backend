@@ -1,7 +1,9 @@
 {
   "collectionName": "components_pricing_plan_matchs",
   "info": {
-    "displayName": "planMatch"
+    "displayName": "Plan match",
+    "description": "Plan slug must match a Plan's slug (e.g. spark). The link is optional.",
+    "icon": "arrowRight"
   },
   "options": {},
   "attributes": {
@@ -14,7 +16,7 @@
     "linkLabel": {
       "type": "string"
     },
-    "linkHref": {
+    "linkUrl": {
       "type": "string"
     }
   },

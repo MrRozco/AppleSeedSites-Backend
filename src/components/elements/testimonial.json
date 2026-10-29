@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_custom_cards",
+  "info": {
+    "displayName": "Testimonial",
+    "description": "A client quote. Business: e.g. \"CybroSecurity, MD\". Icon: the client's logo (optional; a quote mark is shown when empty).",
+    "icon": "quote"
+  },
+  "options": {},
+  "attributes": {
+    "quote": {
+      "type": "text"
+    },
+    "name": {
+      "type": "string"
+    },
+    "business": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

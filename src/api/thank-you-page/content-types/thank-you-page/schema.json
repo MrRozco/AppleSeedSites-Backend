@@ -4,33 +4,30 @@
   "info": {
     "singularName": "thank-you-page",
     "pluralName": "thank-you-pages",
-    "displayName": "Thank-you page"
+    "displayName": "Page · Thank you",
+    "description": "/thank-you, where the lead form lands after a submission. Never indexed by search engines."
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "heading": {
-      "type": "string"
-    },
-    "body": {
-      "type": "text"
+    "hero": {
+      "type": "component",
+      "component": "shared.page-intro",
+      "repeatable": false
     },
     "schedulerUrl": {
       "type": "string"
     },
-    "prepareHeading": {
-      "type": "string"
-    },
-    "prepareList": {
+    "prepare": {
       "type": "component",
-      "component": "shared.feature",
-      "repeatable": true
+      "component": "shared.checklist",
+      "repeatable": false
     },
     "links": {
       "type": "component",
-      "component": "shared.link",
+      "component": "elements.link",
       "repeatable": true
     },
     "seo": {

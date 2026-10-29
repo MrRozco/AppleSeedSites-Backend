@@ -1,8 +1,9 @@
 {
   "collectionName": "components_pricing_comparison_features",
   "info": {
-    "displayName": "comparisonFeature",
-    "description": "A row in the plan comparison table. key must be unique on the page and match plan.comparisonValues.featureKey."
+    "displayName": "Comparison row",
+    "description": "Key must be unique and match plan.comparisonValues.featureKey (lowercase, numbers and dashes).",
+    "icon": "bulletList"
   },
   "options": {},
   "attributes": {

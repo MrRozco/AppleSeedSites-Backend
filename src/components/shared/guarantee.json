@@ -1,14 +1,16 @@
 {
   "collectionName": "components_shared_guarantees",
   "info": {
-    "displayName": "guarantee"
+    "displayName": "Guarantee",
+    "description": "A single highlighted promise.",
+    "icon": "shield"
   },
   "options": {},
   "attributes": {
-    "heading": {
+    "title": {
       "type": "string"
     },
-    "body": {
+    "description": {
       "type": "text"
     }
   },

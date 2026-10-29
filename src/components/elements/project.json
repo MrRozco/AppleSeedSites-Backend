@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_layout_portfolio_cards",
+  "info": {
+    "displayName": "Portfolio project",
+    "description": "Tag example: \"Landscaping · Bethesda, MD\". Result: one measurable outcome.",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "tag": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "result": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "url": {
+      "type": "string"
+    },
+    "buttonLabel": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

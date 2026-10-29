@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_custom_about_sections",
+  "info": {
+    "displayName": "Text + image",
+    "description": "Rich text with an optional image beside it. Without an image it becomes a centred reading column (privacy policy, terms).",
+    "icon": "layout"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "bullets": {
+      "type": "component",
+      "component": "elements.bullet",
+      "repeatable": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "imageRight": {
+      "type": "boolean",
+      "default": false
+    },
+    "button": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

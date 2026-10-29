@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_custom_contact_links",
+  "info": {
+    "displayName": "Contact item",
+    "description": "Phone, email or address line. Leave the URL empty for plain text (e.g. the service area).",
+    "icon": "phone"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

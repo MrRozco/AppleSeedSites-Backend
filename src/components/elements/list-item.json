@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_features",
+  "info": {
+    "displayName": "List item",
+    "description": "One line of text in a checklist.",
+    "icon": "check"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

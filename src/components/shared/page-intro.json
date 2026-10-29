@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_shared_page_intros",
+  "info": {
+    "displayName": "Page intro",
+    "description": "Heading block at the top of a page.",
+    "icon": "hashtag"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

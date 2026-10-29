@@ -1,26 +1,28 @@
 {
   "collectionName": "components_shared_ctas",
   "info": {
-    "displayName": "cta"
+    "displayName": "Call to action band",
+    "description": "Deep-blue band with a heading, text and up to two buttons.",
+    "icon": "cursor"
   },
   "options": {},
   "attributes": {
-    "heading": {
+    "title": {
       "type": "string"
     },
-    "body": {
+    "description": {
       "type": "text"
     },
     "primaryLabel": {
       "type": "string"
     },
-    "primaryHref": {
+    "primaryUrl": {
       "type": "string"
     },
     "secondaryLabel": {
       "type": "string"
     },
-    "secondaryHref": {
+    "secondaryUrl": {
       "type": "string"
     }
   },

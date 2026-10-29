@@ -199,9 +199,11 @@ export interface CustomPerformance extends Struct.ComponentSchema {
 export interface CustomPricing extends Struct.ComponentSchema {
   collectionName: 'components_custom_pricings';
   info: {
+    description: 'Pricing cards. The optional button is shown centered below the cards.';
     displayName: 'Pricing';
   };
   attributes: {
+    button: Schema.Attribute.Component<'layout.button', false>;
     card: Schema.Attribute.Component<'layout.pricing-cards', true>;
     description: Schema.Attribute.Text;
     eyebrow: Schema.Attribute.String;

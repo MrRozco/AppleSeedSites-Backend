@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_pricing_heroes",
+  "info": {
+    "displayName": "Pricing hero",
+    "description": "Page heading, the upfront / zero-down toggle labels, and the note under the plan cards.",
+    "icon": "priceTag"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "upfrontLabel": {
+      "type": "string"
+    },
+    "zeroDownLabel": {
+      "type": "string"
+    },
+    "belowCardsNote": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

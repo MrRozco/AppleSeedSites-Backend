@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_layout_pricing_cards",
+  "info": {
+    "displayName": "Pricing card",
+    "description": "Price is a number; Price text replaces it when empty (e.g. \"Custom\").",
+    "icon": "priceTag"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "priceText": {
+      "type": "string"
+    },
+    "setupFee": {
+      "type": "decimal"
+    },
+    "pointsIntro": {
+      "type": "string"
+    },
+    "bullets": {
+      "type": "component",
+      "component": "elements.bullet",
+      "repeatable": true
+    },
+    "buttons": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

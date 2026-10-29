@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_custom_steps",
+  "info": {
+    "displayName": "Steps",
+    "description": "Numbered process (e.g. \"Live in 3 simple steps\"). Numbers follow the order of the steps.",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "steps": {
+      "type": "component",
+      "component": "elements.step",
+      "repeatable": true
+    },
+    "button": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

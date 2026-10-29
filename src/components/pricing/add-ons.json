@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_pricing_add_ons",
+  "info": {
+    "displayName": "Add-ons",
+    "description": "Heading for the Add-ons collection, plus the call-to-action band shown under it.",
+    "icon": "plus"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.cta",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

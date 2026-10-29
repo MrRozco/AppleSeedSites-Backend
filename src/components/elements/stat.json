@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_layout_stats",
+  "info": {
+    "displayName": "Stat",
+    "description": "A big number with a label, e.g. 0.8s / Average load time.",
+    "icon": "chartBubble"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

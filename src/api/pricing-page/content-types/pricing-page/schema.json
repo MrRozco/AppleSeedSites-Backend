@@ -4,72 +4,48 @@
   "info": {
     "singularName": "pricing-page",
     "pluralName": "pricing-pages",
-    "displayName": "Pricing page"
+    "displayName": "Page · Pricing",
+    "description": "/pricing. Plans and Add-ons come from their own collections."
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "eyebrow": {
-      "type": "string"
-    },
-    "heading": {
-      "type": "string"
-    },
-    "subheading": {
-      "type": "text"
-    },
-    "toggleUpfrontLabel": {
-      "type": "string"
-    },
-    "toggleZeroDownLabel": {
-      "type": "string"
-    },
-    "belowCardsNote": {
-      "type": "text"
-    },
-    "whichPlanHeading": {
-      "type": "string"
-    },
-    "whichPlan": {
+    "hero": {
       "type": "component",
-      "component": "pricing.plan-match",
-      "repeatable": true
-    },
-    "comparisonFeatures": {
-      "type": "component",
-      "component": "pricing.comparison-feature",
-      "repeatable": true
-    },
-    "addOnsHeading": {
-      "type": "string"
-    },
-    "ecommerce": {
-      "type": "component",
-      "component": "shared.cta",
+      "component": "pricing.hero",
       "repeatable": false
     },
-    "costComparisonHeading": {
-      "type": "string"
+    "planFinder": {
+      "type": "component",
+      "component": "pricing.plan-finder",
+      "repeatable": false
+    },
+    "comparison": {
+      "type": "component",
+      "component": "pricing.comparison",
+      "repeatable": false
+    },
+    "addOns": {
+      "type": "component",
+      "component": "pricing.add-ons",
+      "repeatable": false
     },
     "costComparison": {
       "type": "component",
-      "component": "pricing.cost-row",
-      "repeatable": true
+      "component": "pricing.cost-comparison",
+      "repeatable": false
     },
     "guarantee": {
       "type": "component",
       "component": "shared.guarantee",
       "repeatable": false
     },
-    "faqHeading": {
-      "type": "string"
-    },
-    "faqs": {
+    "faq": {
       "type": "component",
-      "component": "shared.faq",
-      "repeatable": true
+      "component": "sections.faq",
+      "repeatable": false
     },
     "closingCta": {
       "type": "component",

@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_menu_menu_buttons",
+  "info": {
+    "displayName": "Menu button",
+    "description": "A highlighted button in the navbar.",
+    "icon": "cursor"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "style": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary"
+      ],
+      "default": "primary"
+    }
+  },
+  "config": {}
+}

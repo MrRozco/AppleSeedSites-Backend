@@ -4,7 +4,8 @@
   "info": {
     "singularName": "footer",
     "pluralName": "footers",
-    "displayName": "Footer"
+    "displayName": "Site · Footer",
+    "description": "Site footer. CTA: its label is also the heading of the call-to-action band at the end of every page."
   },
   "options": {
     "draftAndPublish": true
@@ -15,10 +16,7 @@
       "type": "media",
       "multiple": false,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "images"
       ]
     },
     "description": {
@@ -26,23 +24,23 @@
     },
     "cta": {
       "type": "component",
-      "component": "menu.menu-link",
+      "component": "elements.link",
       "repeatable": false
     },
-    "menuHeader": {
+    "linksTitle": {
       "type": "string"
     },
-    "footerLink": {
+    "links": {
       "type": "component",
-      "component": "menu.menu-link",
+      "component": "elements.link",
       "repeatable": true
     },
-    "contactHeader": {
+    "contactTitle": {
       "type": "string"
     },
-    "contactLink": {
+    "contactLinks": {
       "type": "component",
-      "component": "custom.contact-link",
+      "component": "elements.contact-link",
       "repeatable": true
     }
   }

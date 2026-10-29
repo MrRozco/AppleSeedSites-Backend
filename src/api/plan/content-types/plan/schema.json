@@ -4,7 +4,7 @@
   "info": {
     "singularName": "plan",
     "pluralName": "plans",
-    "displayName": "Plan",
+    "displayName": "Pricing · Plan",
     "description": "Monthly website plans (Spark, Elevate, Momentum). Prices in whole dollars."
   },
   "options": {
@@ -49,12 +49,12 @@
     },
     "features": {
       "type": "component",
-      "component": "shared.feature",
+      "component": "elements.list-item",
       "repeatable": true
     },
     "teaserFeatures": {
       "type": "component",
-      "component": "shared.feature",
+      "component": "elements.list-item",
       "repeatable": true,
       "max": 3
     },

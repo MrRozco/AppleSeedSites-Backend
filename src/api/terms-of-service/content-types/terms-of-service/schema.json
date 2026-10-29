@@ -4,27 +4,33 @@
   "info": {
     "singularName": "terms-of-service",
     "pluralName": "terms-of-services",
-    "displayName": "terms of service"
+    "displayName": "Page · Terms of service",
+    "description": "/terms-of-service. Use a Text + image section without an image for the terms."
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "description": {
-      "type": "text"
-    },
-    "url": {
-      "type": "string"
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
     },
     "content": {
       "type": "dynamiczone",
       "components": [
-        "custom.hero",
-        "custom.about-section"
+        "sections.hero",
+        "sections.features",
+        "sections.text-image",
+        "sections.text-gallery",
+        "sections.our-work",
+        "sections.performance",
+        "sections.testimonials",
+        "sections.pricing",
+        "sections.steps",
+        "sections.faq",
+        "sections.lead-form"
       ]
     }
   }

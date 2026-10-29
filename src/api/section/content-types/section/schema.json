@@ -4,22 +4,20 @@
   "info": {
     "singularName": "section",
     "pluralName": "sections",
-    "displayName": "section"
+    "displayName": "Site · Mega menu column",
+    "description": "A column of links in a navbar dropdown's mega menu."
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "heading": {
-      "type": "string"
-    },
-    "url": {
+    "title": {
       "type": "string"
     },
     "links": {
       "type": "component",
-      "component": "menu.link",
+      "component": "navigation.mega-link",
       "repeatable": true
     }
   }

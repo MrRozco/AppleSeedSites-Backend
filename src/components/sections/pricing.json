@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_custom_pricings",
+  "info": {
+    "displayName": "Pricing",
+    "description": "On the homepage the cards come from the Plans collection; the cards here are only used when no plans are published. The button is shown centred below the cards.",
+    "icon": "priceTag"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "cards": {
+      "type": "component",
+      "component": "elements.pricing-card",
+      "repeatable": true
+    },
+    "button": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

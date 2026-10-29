@@ -4,7 +4,7 @@
   "info": {
     "singularName": "lead",
     "pluralName": "leads",
-    "displayName": "lead",
+    "displayName": "Leads",
     "description": "Website form submissions. Created only by the Next.js /api/lead route with a create-only API token. No public permissions. IP addresses are never stored."
   },
   "options": {

@@ -376,7 +376,8 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   collectionName: 'abouts';
   info: {
-    displayName: 'About';
+    description: '/about';
+    displayName: 'Page \u00B7 About';
     pluralName: 'abouts';
     singularName: 'about';
   };
@@ -386,38 +387,38 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   attributes: {
     content: Schema.Attribute.DynamicZone<
       [
-        'custom.hero',
-        'custom.about-section',
-        'custom.testimonials',
-        'custom.performance',
-        'custom.our-work',
-        'custom.features',
-        'custom.business-section',
-        'custom.steps',
-        'custom.faq',
-        'custom.lead-form',
+        'sections.hero',
+        'sections.features',
+        'sections.text-image',
+        'sections.text-gallery',
+        'sections.our-work',
+        'sections.performance',
+        'sections.testimonials',
+        'sections.pricing',
+        'sections.steps',
+        'sections.faq',
+        'sections.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::about.about'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url: Schema.Attribute.String;
   };
 }
 
 export interface ApiAddOnAddOn extends Struct.CollectionTypeSchema {
   collectionName: 'add_ons';
   info: {
-    displayName: 'Add-on';
+    description: 'Optional extras listed on /pricing, sorted by Sort order.';
+    displayName: 'Pricing \u00B7 Add-on';
     pluralName: 'add-ons';
     singularName: 'add-on';
   };
@@ -429,7 +430,7 @@ export interface ApiAddOnAddOn extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
-    link: Schema.Attribute.Component<'shared.link', false>;
+    link: Schema.Attribute.Component<'elements.link', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -459,7 +460,8 @@ export interface ApiAddOnAddOn extends Struct.CollectionTypeSchema {
 export interface ApiAiAi extends Struct.SingleTypeSchema {
   collectionName: 'ais';
   info: {
-    displayName: 'AI';
+    description: '/ai';
+    displayName: 'Page \u00B7 AI';
     pluralName: 'ais';
     singularName: 'ai';
   };
@@ -469,83 +471,38 @@ export interface ApiAiAi extends Struct.SingleTypeSchema {
   attributes: {
     content: Schema.Attribute.DynamicZone<
       [
-        'custom.business-section',
-        'custom.hero',
-        'custom.testimonials',
-        'custom.performance',
-        'custom.our-work',
-        'custom.features',
-        'custom.about-section',
-        'custom.steps',
-        'custom.faq',
-        'custom.lead-form',
+        'sections.hero',
+        'sections.features',
+        'sections.text-image',
+        'sections.text-gallery',
+        'sections.our-work',
+        'sections.performance',
+        'sections.testimonials',
+        'sections.pricing',
+        'sections.steps',
+        'sections.faq',
+        'sections.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::ai.ai'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url: Schema.Attribute.String;
-  };
-}
-
-export interface ApiContactContact extends Struct.SingleTypeSchema {
-  collectionName: 'contacts';
-  info: {
-    displayName: 'Contact';
-    pluralName: 'contacts';
-    singularName: 'contact';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    content: Schema.Attribute.DynamicZone<
-      [
-        'custom.about-section',
-        'custom.hero',
-        'custom.testimonials',
-        'custom.performance',
-        'custom.our-work',
-        'custom.features',
-        'custom.business-section',
-        'custom.contact-section',
-        'custom.steps',
-        'custom.faq',
-        'custom.lead-form',
-      ]
-    >;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::contact.contact'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    url: Schema.Attribute.String;
   };
 }
 
 export interface ApiECommerceECommerce extends Struct.SingleTypeSchema {
   collectionName: 'e_commerces';
   info: {
-    displayName: 'e-commerce';
+    description: '/e-commerce';
+    displayName: 'Page \u00B7 E-commerce';
     pluralName: 'e-commerces';
     singularName: 'e-commerce';
   };
@@ -555,24 +512,22 @@ export interface ApiECommerceECommerce extends Struct.SingleTypeSchema {
   attributes: {
     content: Schema.Attribute.DynamicZone<
       [
-        'custom.testimonials',
-        'custom.pricing',
-        'custom.performance',
-        'custom.our-work',
-        'custom.hero',
-        'custom.features',
-        'custom.contact-section',
-        'custom.business-section',
-        'custom.about-section',
-        'custom.steps',
-        'custom.faq',
-        'custom.lead-form',
+        'sections.hero',
+        'sections.features',
+        'sections.text-image',
+        'sections.text-gallery',
+        'sections.our-work',
+        'sections.performance',
+        'sections.testimonials',
+        'sections.pricing',
+        'sections.steps',
+        'sections.faq',
+        'sections.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -580,18 +535,18 @@ export interface ApiECommerceECommerce extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url: Schema.Attribute.String;
   };
 }
 
 export interface ApiFooterFooter extends Struct.SingleTypeSchema {
   collectionName: 'footers';
   info: {
-    displayName: 'Footer';
+    description: 'Site footer. CTA: its label is also the heading of the call-to-action band at the end of every page.';
+    displayName: 'Site \u00B7 Footer';
     pluralName: 'footers';
     singularName: 'footer';
   };
@@ -599,22 +554,22 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    contactHeader: Schema.Attribute.String;
-    contactLink: Schema.Attribute.Component<'custom.contact-link', true>;
+    contactLinks: Schema.Attribute.Component<'elements.contact-link', true>;
+    contactTitle: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    cta: Schema.Attribute.Component<'menu.menu-link', false>;
+    cta: Schema.Attribute.Component<'elements.link', false>;
     description: Schema.Attribute.Text;
-    footerLink: Schema.Attribute.Component<'menu.menu-link', true>;
+    links: Schema.Attribute.Component<'elements.link', true>;
+    linksTitle: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::footer.footer'
     > &
       Schema.Attribute.Private;
-    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    menuHeader: Schema.Attribute.String;
+    logo: Schema.Attribute.Media<'images'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -625,7 +580,8 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
 export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
   collectionName: 'homepages';
   info: {
-    displayName: 'homepage';
+    description: 'The home page (/). Its Pricing section shows the published Plans.';
+    displayName: 'Page \u00B7 Home';
     pluralName: 'homepages';
     singularName: 'homepage';
   };
@@ -635,21 +591,22 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
   attributes: {
     content: Schema.Attribute.DynamicZone<
       [
-        'custom.hero',
-        'custom.features',
-        'custom.our-work',
-        'custom.performance',
-        'custom.testimonials',
-        'custom.pricing',
-        'custom.steps',
-        'custom.faq',
-        'custom.lead-form',
+        'sections.hero',
+        'sections.features',
+        'sections.text-image',
+        'sections.text-gallery',
+        'sections.our-work',
+        'sections.performance',
+        'sections.testimonials',
+        'sections.pricing',
+        'sections.steps',
+        'sections.faq',
+        'sections.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -657,7 +614,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -667,7 +624,8 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
 export interface ApiLandingPageLandingPage extends Struct.SingleTypeSchema {
   collectionName: 'landing_pages';
   info: {
-    displayName: 'Landing Page';
+    description: '/landing-page';
+    displayName: 'Page \u00B7 Landing pages';
     pluralName: 'landing-pages';
     singularName: 'landing-page';
   };
@@ -677,24 +635,22 @@ export interface ApiLandingPageLandingPage extends Struct.SingleTypeSchema {
   attributes: {
     content: Schema.Attribute.DynamicZone<
       [
-        'custom.testimonials',
-        'custom.pricing',
-        'custom.performance',
-        'custom.our-work',
-        'custom.hero',
-        'custom.features',
-        'custom.contact-section',
-        'custom.business-section',
-        'custom.about-section',
-        'custom.steps',
-        'custom.faq',
-        'custom.lead-form',
+        'sections.hero',
+        'sections.features',
+        'sections.text-image',
+        'sections.text-gallery',
+        'sections.our-work',
+        'sections.performance',
+        'sections.testimonials',
+        'sections.pricing',
+        'sections.steps',
+        'sections.faq',
+        'sections.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -702,19 +658,18 @@ export interface ApiLandingPageLandingPage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url: Schema.Attribute.String;
   };
 }
 
 export interface ApiLeadFormLeadForm extends Struct.SingleTypeSchema {
   collectionName: 'lead_forms';
   info: {
-    description: 'Copy for the /contact form. needOptions is a JSON array of { value, label }; values must be lead.need enum values.';
-    displayName: 'Lead form';
+    description: '/contact, and the field labels for every Lead form section on the site.';
+    displayName: 'Page \u00B7 Contact';
     pluralName: 'lead-forms';
     singularName: 'lead-form';
   };
@@ -722,37 +677,23 @@ export interface ApiLeadFormLeadForm extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    businessLabel: Schema.Attribute.String;
-    contactLabel: Schema.Attribute.String;
-    contactPlaceholder: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    eyebrow: Schema.Attribute.String;
-    heading: Schema.Attribute.String;
+    form: Schema.Attribute.Component<'forms.lead-form-fields', false>;
+    hero: Schema.Attribute.Component<'shared.page-intro', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::lead-form.lead-form'
     > &
       Schema.Attribute.Private;
-    messageLabel: Schema.Attribute.String;
-    nameLabel: Schema.Attribute.String;
-    needLabel: Schema.Attribute.String;
-    needOptions: Schema.Attribute.JSON;
-    nextSteps: Schema.Attribute.Component<'shared.next-step', true>;
-    nextStepsHeading: Schema.Attribute.String;
-    privacyText: Schema.Attribute.String;
+    nextSteps: Schema.Attribute.Component<'sections.steps', false>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
-    subheading: Schema.Attribute.Text;
-    submitLabel: Schema.Attribute.String;
-    underButtonText: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    websiteLabel: Schema.Attribute.String;
-    websitePlaceholder: Schema.Attribute.String;
   };
 }
 
@@ -760,7 +701,7 @@ export interface ApiLeadLead extends Struct.CollectionTypeSchema {
   collectionName: 'leads';
   info: {
     description: 'Website form submissions. Created only by the Next.js /api/lead route with a create-only API token. No public permissions. IP addresses are never stored.';
-    displayName: 'lead';
+    displayName: 'Leads';
     pluralName: 'leads';
     singularName: 'lead';
   };
@@ -856,7 +797,8 @@ export interface ApiMediumBusinessMediumBusiness
   extends Struct.SingleTypeSchema {
   collectionName: 'medium_businesses';
   info: {
-    displayName: 'mediumBusiness';
+    description: '/medium-business';
+    displayName: 'Page \u00B7 Medium business';
     pluralName: 'medium-businesses';
     singularName: 'medium-business';
   };
@@ -866,24 +808,22 @@ export interface ApiMediumBusinessMediumBusiness
   attributes: {
     content: Schema.Attribute.DynamicZone<
       [
-        'custom.testimonials',
-        'custom.pricing',
-        'custom.performance',
-        'custom.our-work',
-        'custom.hero',
-        'custom.features',
-        'custom.contact-section',
-        'custom.business-section',
-        'custom.about-section',
-        'custom.steps',
-        'custom.faq',
-        'custom.lead-form',
+        'sections.hero',
+        'sections.features',
+        'sections.text-image',
+        'sections.text-gallery',
+        'sections.our-work',
+        'sections.performance',
+        'sections.testimonials',
+        'sections.pricing',
+        'sections.steps',
+        'sections.faq',
+        'sections.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -891,18 +831,18 @@ export interface ApiMediumBusinessMediumBusiness
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url: Schema.Attribute.String;
   };
 }
 
 export interface ApiNavbarNavbar extends Struct.SingleTypeSchema {
   collectionName: 'navbars';
   info: {
-    displayName: 'Navbar';
+    description: 'Site navigation.';
+    displayName: 'Site \u00B7 Navbar';
     pluralName: 'navbars';
     singularName: 'navbar';
   };
@@ -913,17 +853,16 @@ export interface ApiNavbarNavbar extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    darkLogo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    lightLogo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    items: Schema.Attribute.DynamicZone<
+      ['navigation.link', 'navigation.button', 'navigation.dropdown']
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::navbar.navbar'
     > &
       Schema.Attribute.Private;
-    NavbarItems: Schema.Attribute.DynamicZone<
-      ['menu.menu-link', 'menu.menu-button', 'menu.dropdown']
-    >;
+    logo: Schema.Attribute.Media<'images'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -935,7 +874,7 @@ export interface ApiPlanPlan extends Struct.CollectionTypeSchema {
   collectionName: 'plans';
   info: {
     description: 'Monthly website plans (Spark, Elevate, Momentum). Prices in whole dollars.';
-    displayName: 'Plan';
+    displayName: 'Pricing \u00B7 Plan';
     pluralName: 'plans';
     singularName: 'plan';
   };
@@ -953,7 +892,7 @@ export interface ApiPlanPlan extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     ctaLabel: Schema.Attribute.String;
-    features: Schema.Attribute.Component<'shared.feature', true>;
+    features: Schema.Attribute.Component<'elements.list-item', true>;
     includesPrevious: Schema.Attribute.String;
     isHighlighted: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -979,7 +918,7 @@ export interface ApiPlanPlan extends Struct.CollectionTypeSchema {
       >;
     slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
     sortOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
-    teaserFeatures: Schema.Attribute.Component<'shared.feature', true> &
+    teaserFeatures: Schema.Attribute.Component<'elements.list-item', true> &
       Schema.Attribute.SetMinMax<
         {
           max: 3;
@@ -1011,7 +950,8 @@ export interface ApiPlanPlan extends Struct.CollectionTypeSchema {
 export interface ApiPricingPagePricingPage extends Struct.SingleTypeSchema {
   collectionName: 'pricing_pages';
   info: {
-    displayName: 'Pricing page';
+    description: '/pricing. Plans and Add-ons come from their own collections.';
+    displayName: 'Page \u00B7 Pricing';
     pluralName: 'pricing-pages';
     singularName: 'pricing-page';
   };
@@ -1019,88 +959,39 @@ export interface ApiPricingPagePricingPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    addOnsHeading: Schema.Attribute.String;
-    belowCardsNote: Schema.Attribute.Text;
+    addOns: Schema.Attribute.Component<'pricing.add-ons', false>;
     closingCta: Schema.Attribute.Component<'shared.cta', false>;
-    comparisonFeatures: Schema.Attribute.Component<
-      'pricing.comparison-feature',
-      true
+    comparison: Schema.Attribute.Component<'pricing.comparison', false>;
+    costComparison: Schema.Attribute.Component<
+      'pricing.cost-comparison',
+      false
     >;
-    costComparison: Schema.Attribute.Component<'pricing.cost-row', true>;
-    costComparisonHeading: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    ecommerce: Schema.Attribute.Component<'shared.cta', false>;
-    eyebrow: Schema.Attribute.String;
-    faqHeading: Schema.Attribute.String;
-    faqs: Schema.Attribute.Component<'shared.faq', true>;
+    faq: Schema.Attribute.Component<'sections.faq', false>;
     guarantee: Schema.Attribute.Component<'shared.guarantee', false>;
-    heading: Schema.Attribute.String;
+    hero: Schema.Attribute.Component<'pricing.hero', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::pricing-page.pricing-page'
     > &
       Schema.Attribute.Private;
+    planFinder: Schema.Attribute.Component<'pricing.plan-finder', false>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
-    subheading: Schema.Attribute.Text;
-    toggleUpfrontLabel: Schema.Attribute.String;
-    toggleZeroDownLabel: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    whichPlan: Schema.Attribute.Component<'pricing.plan-match', true>;
-    whichPlanHeading: Schema.Attribute.String;
-  };
-}
-
-export interface ApiPricingPricing extends Struct.SingleTypeSchema {
-  collectionName: 'pricings';
-  info: {
-    displayName: 'Pricing';
-    pluralName: 'pricings';
-    singularName: 'pricing';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    content: Schema.Attribute.DynamicZone<
-      [
-        'custom.hero',
-        'custom.pricing',
-        'custom.features',
-        'custom.about-section',
-        'custom.steps',
-        'custom.faq',
-        'custom.lead-form',
-      ]
-    >;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::pricing.pricing'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    url: Schema.Attribute.String;
   };
 }
 
 export interface ApiPrivacyPolicyPrivacyPolicy extends Struct.SingleTypeSchema {
   collectionName: 'privacy_policies';
   info: {
-    displayName: 'privacy-policy';
+    description: '/privacy-policy. Use a Text + image section without an image for the policy text.';
+    displayName: 'Page \u00B7 Privacy policy';
     pluralName: 'privacy-policies';
     singularName: 'privacy-policy';
   };
@@ -1109,12 +1000,23 @@ export interface ApiPrivacyPolicyPrivacyPolicy extends Struct.SingleTypeSchema {
   };
   attributes: {
     content: Schema.Attribute.DynamicZone<
-      ['custom.hero', 'custom.about-section']
+      [
+        'sections.hero',
+        'sections.features',
+        'sections.text-image',
+        'sections.text-gallery',
+        'sections.our-work',
+        'sections.performance',
+        'sections.testimonials',
+        'sections.pricing',
+        'sections.steps',
+        'sections.faq',
+        'sections.lead-form',
+      ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1122,18 +1024,18 @@ export interface ApiPrivacyPolicyPrivacyPolicy extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url: Schema.Attribute.String;
   };
 }
 
 export interface ApiSectionSection extends Struct.CollectionTypeSchema {
   collectionName: 'sections';
   info: {
-    displayName: 'section';
+    description: "A column of links in a navbar dropdown's mega menu.";
+    displayName: 'Site \u00B7 Mega menu column';
     pluralName: 'sections';
     singularName: 'section';
   };
@@ -1144,8 +1046,7 @@ export interface ApiSectionSection extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    heading: Schema.Attribute.String;
-    links: Schema.Attribute.Component<'menu.link', true>;
+    links: Schema.Attribute.Component<'navigation.mega-link', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1153,17 +1054,18 @@ export interface ApiSectionSection extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url: Schema.Attribute.String;
   };
 }
 
 export interface ApiSeoSeo extends Struct.SingleTypeSchema {
   collectionName: 'seos';
   info: {
-    displayName: 'SEO';
+    description: '/seo';
+    displayName: 'Page \u00B7 SEO';
     pluralName: 'seos';
     singularName: 'seo';
   };
@@ -1173,40 +1075,38 @@ export interface ApiSeoSeo extends Struct.SingleTypeSchema {
   attributes: {
     content: Schema.Attribute.DynamicZone<
       [
-        'custom.testimonials',
-        'custom.pricing',
-        'custom.performance',
-        'custom.our-work',
-        'custom.hero',
-        'custom.features',
-        'custom.contact-section',
-        'custom.business-section',
-        'custom.about-section',
-        'custom.steps',
-        'custom.faq',
-        'custom.lead-form',
+        'sections.hero',
+        'sections.features',
+        'sections.text-image',
+        'sections.text-gallery',
+        'sections.our-work',
+        'sections.performance',
+        'sections.testimonials',
+        'sections.pricing',
+        'sections.steps',
+        'sections.faq',
+        'sections.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::seo.seo'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url: Schema.Attribute.String;
   };
 }
 
 export interface ApiSmallBusinessSmallBusiness extends Struct.SingleTypeSchema {
   collectionName: 'small_businesses';
   info: {
-    displayName: 'smallBusiness';
+    description: '/small-business';
+    displayName: 'Page \u00B7 Small business';
     pluralName: 'small-businesses';
     singularName: 'small-business';
   };
@@ -1216,23 +1116,22 @@ export interface ApiSmallBusinessSmallBusiness extends Struct.SingleTypeSchema {
   attributes: {
     content: Schema.Attribute.DynamicZone<
       [
-        'custom.testimonials',
-        'custom.pricing',
-        'custom.performance',
-        'custom.our-work',
-        'custom.hero',
-        'custom.features',
-        'custom.business-section',
-        'custom.about-section',
-        'custom.steps',
-        'custom.faq',
-        'custom.lead-form',
+        'sections.hero',
+        'sections.features',
+        'sections.text-image',
+        'sections.text-gallery',
+        'sections.our-work',
+        'sections.performance',
+        'sections.testimonials',
+        'sections.pricing',
+        'sections.steps',
+        'sections.faq',
+        'sections.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1240,18 +1139,18 @@ export interface ApiSmallBusinessSmallBusiness extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url: Schema.Attribute.String;
   };
 }
 
 export interface ApiTemplateTemplate extends Struct.SingleTypeSchema {
   collectionName: 'templates';
   info: {
-    displayName: 'Template';
+    description: '/templates';
+    displayName: 'Page \u00B7 Templates';
     pluralName: 'templates';
     singularName: 'template';
   };
@@ -1261,24 +1160,22 @@ export interface ApiTemplateTemplate extends Struct.SingleTypeSchema {
   attributes: {
     content: Schema.Attribute.DynamicZone<
       [
-        'custom.testimonials',
-        'custom.pricing',
-        'custom.performance',
-        'custom.our-work',
-        'custom.hero',
-        'custom.features',
-        'custom.contact-section',
-        'custom.business-section',
-        'custom.about-section',
-        'custom.steps',
-        'custom.faq',
-        'custom.lead-form',
+        'sections.hero',
+        'sections.features',
+        'sections.text-image',
+        'sections.text-gallery',
+        'sections.our-work',
+        'sections.performance',
+        'sections.testimonials',
+        'sections.pricing',
+        'sections.steps',
+        'sections.faq',
+        'sections.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1286,11 +1183,10 @@ export interface ApiTemplateTemplate extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url: Schema.Attribute.String;
   };
 }
 
@@ -1298,7 +1194,8 @@ export interface ApiTermsOfServiceTermsOfService
   extends Struct.SingleTypeSchema {
   collectionName: 'terms_of_services';
   info: {
-    displayName: 'terms of service';
+    description: '/terms-of-service. Use a Text + image section without an image for the terms.';
+    displayName: 'Page \u00B7 Terms of service';
     pluralName: 'terms-of-services';
     singularName: 'terms-of-service';
   };
@@ -1307,12 +1204,23 @@ export interface ApiTermsOfServiceTermsOfService
   };
   attributes: {
     content: Schema.Attribute.DynamicZone<
-      ['custom.hero', 'custom.about-section']
+      [
+        'sections.hero',
+        'sections.features',
+        'sections.text-image',
+        'sections.text-gallery',
+        'sections.our-work',
+        'sections.performance',
+        'sections.testimonials',
+        'sections.pricing',
+        'sections.steps',
+        'sections.faq',
+        'sections.lead-form',
+      ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1320,18 +1228,18 @@ export interface ApiTermsOfServiceTermsOfService
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url: Schema.Attribute.String;
   };
 }
 
 export interface ApiTestimonialTestimonial extends Struct.SingleTypeSchema {
   collectionName: 'testimonials';
   info: {
-    displayName: 'Testimonial';
+    description: '/testimonials';
+    displayName: 'Page \u00B7 Testimonials';
     pluralName: 'testimonials';
     singularName: 'testimonial';
   };
@@ -1341,22 +1249,22 @@ export interface ApiTestimonialTestimonial extends Struct.SingleTypeSchema {
   attributes: {
     content: Schema.Attribute.DynamicZone<
       [
-        'custom.testimonials',
-        'custom.hero',
-        'custom.performance',
-        'custom.our-work',
-        'custom.features',
-        'custom.about-section',
-        'custom.business-section',
-        'custom.steps',
-        'custom.faq',
-        'custom.lead-form',
+        'sections.hero',
+        'sections.features',
+        'sections.text-image',
+        'sections.text-gallery',
+        'sections.our-work',
+        'sections.performance',
+        'sections.testimonials',
+        'sections.pricing',
+        'sections.steps',
+        'sections.faq',
+        'sections.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1364,18 +1272,18 @@ export interface ApiTestimonialTestimonial extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url: Schema.Attribute.String;
   };
 }
 
 export interface ApiThankYouPageThankYouPage extends Struct.SingleTypeSchema {
   collectionName: 'thank_you_pages';
   info: {
-    displayName: 'Thank-you page';
+    description: '/thank-you, where the lead form lands after a submission. Never indexed by search engines.';
+    displayName: 'Page \u00B7 Thank you';
     pluralName: 'thank-you-pages';
     singularName: 'thank-you-page';
   };
@@ -1383,20 +1291,18 @@ export interface ApiThankYouPageThankYouPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    body: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    heading: Schema.Attribute.String;
-    links: Schema.Attribute.Component<'shared.link', true>;
+    hero: Schema.Attribute.Component<'shared.page-intro', false>;
+    links: Schema.Attribute.Component<'elements.link', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::thank-you-page.thank-you-page'
     > &
       Schema.Attribute.Private;
-    prepareHeading: Schema.Attribute.String;
-    prepareList: Schema.Attribute.Component<'shared.feature', true>;
+    prepare: Schema.Attribute.Component<'shared.checklist', false>;
     publishedAt: Schema.Attribute.DateTime;
     schedulerUrl: Schema.Attribute.String;
     seo: Schema.Attribute.Component<'shared.seo', false>;
@@ -1409,7 +1315,8 @@ export interface ApiThankYouPageThankYouPage extends Struct.SingleTypeSchema {
 export interface ApiWebOpWebOp extends Struct.SingleTypeSchema {
   collectionName: 'web_ops';
   info: {
-    displayName: 'web-op';
+    description: '/web-ops. Its Lead form section becomes the free site review form.';
+    displayName: 'Page \u00B7 Web ops';
     pluralName: 'web-ops';
     singularName: 'web-op';
   };
@@ -1419,24 +1326,22 @@ export interface ApiWebOpWebOp extends Struct.SingleTypeSchema {
   attributes: {
     content: Schema.Attribute.DynamicZone<
       [
-        'custom.testimonials',
-        'custom.performance',
-        'custom.pricing',
-        'custom.our-work',
-        'custom.hero',
-        'custom.features',
-        'custom.contact-section',
-        'custom.business-section',
-        'custom.about-section',
-        'custom.steps',
-        'custom.faq',
-        'custom.lead-form',
+        'sections.hero',
+        'sections.features',
+        'sections.text-image',
+        'sections.text-gallery',
+        'sections.our-work',
+        'sections.performance',
+        'sections.testimonials',
+        'sections.pricing',
+        'sections.steps',
+        'sections.faq',
+        'sections.lead-form',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1444,11 +1349,10 @@ export interface ApiWebOpWebOp extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url: Schema.Attribute.String;
   };
 }
 
@@ -1964,7 +1868,6 @@ declare module '@strapi/strapi' {
       'api::about.about': ApiAboutAbout;
       'api::add-on.add-on': ApiAddOnAddOn;
       'api::ai.ai': ApiAiAi;
-      'api::contact.contact': ApiContactContact;
       'api::e-commerce.e-commerce': ApiECommerceECommerce;
       'api::footer.footer': ApiFooterFooter;
       'api::homepage.homepage': ApiHomepageHomepage;
@@ -1975,7 +1878,6 @@ declare module '@strapi/strapi' {
       'api::navbar.navbar': ApiNavbarNavbar;
       'api::plan.plan': ApiPlanPlan;
       'api::pricing-page.pricing-page': ApiPricingPagePricingPage;
-      'api::pricing.pricing': ApiPricingPricing;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::section.section': ApiSectionSection;
       'api::seo.seo': ApiSeoSeo;

@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_custom_testimonials",
+  "info": {
+    "displayName": "Testimonials",
+    "description": "Client quotes.",
+    "icon": "quote"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "testimonials": {
+      "type": "component",
+      "component": "elements.testimonial",
+      "repeatable": true
+    },
+    "button": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

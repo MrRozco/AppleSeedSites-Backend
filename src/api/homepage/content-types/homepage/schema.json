@@ -4,31 +4,33 @@
   "info": {
     "singularName": "homepage",
     "pluralName": "homepages",
-    "displayName": "homepage"
+    "displayName": "Page · Home",
+    "description": "The home page (/). Its Pricing section shows the published Plans."
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "description": {
-      "type": "text"
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
     },
     "content": {
       "type": "dynamiczone",
       "components": [
-        "custom.hero",
-        "custom.features",
-        "custom.our-work",
-        "custom.performance",
-        "custom.testimonials",
-        "custom.pricing",
-        "custom.steps",
-        "custom.faq",
-        "custom.lead-form"
+        "sections.hero",
+        "sections.features",
+        "sections.text-image",
+        "sections.text-gallery",
+        "sections.our-work",
+        "sections.performance",
+        "sections.testimonials",
+        "sections.pricing",
+        "sections.steps",
+        "sections.faq",
+        "sections.lead-form"
       ]
     }
   }

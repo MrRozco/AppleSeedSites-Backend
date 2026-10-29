@@ -12,8 +12,8 @@ const { compileStrapi, createStrapi } = require("@strapi/strapi");
 
 const PLACEHOLDERS = {
   heroButtons: [
-    { title: "Get My Free Website Plan", url: "#get-plan" },
-    { title: "See Pricing", url: "#pricing" },
+    { label: "Get My Free Website Plan", url: "#get-plan" },
+    { label: "See Pricing", url: "#pricing" },
   ],
   heroTrust: [
     { stars: true, text: "[on Google]" },
@@ -21,43 +21,43 @@ const PLACEHOLDERS = {
     { stars: false, text: "[No long-term contracts]" },
   ],
   paths: {
-    __component: "custom.features",
+    __component: "sections.features",
     title: "Where’s your business today?",
-    featuresCard: [
+    cards: [
       {
         title: "No website yet?",
-        body: "Customers search before they call. If they can’t find you, they call someone else. We’ll get you online and on Google Maps fast.",
-        button: [{ title: "Get a Free Homepage Preview", url: "#get-plan" }],
+        description: "Customers search before they call. If they can’t find you, they call someone else. We’ll get you online and on Google Maps fast.",
+        buttons: [{ label: "Get a Free Homepage Preview", url: "#get-plan" }],
       },
       {
         title: "Website not working?",
-        body: "Slow, outdated, or invisible on Google? We’ll audit your site for free and show you exactly what’s costing you customers.",
-        button: [{ title: "Get a Free Site Audit", url: "#get-plan" }],
+        description: "Slow, outdated, or invisible on Google? We’ll audit your site for free and show you exactly what’s costing you customers.",
+        buttons: [{ label: "Get a Free Site Audit", url: "#get-plan" }],
       },
     ],
   },
   steps: {
-    __component: "custom.steps",
+    __component: "sections.steps",
     title: "Live in 3 simple steps",
-    step: [
+    steps: [
       { title: "Free 15-minute call", body: "Tell us about your business, and we’ll recommend the right plan." },
       { title: "We design and build", body: "Review a draft, request changes, and approve. No guesswork." },
       { title: "Launch and grow", body: "We handle hosting, security, and updates. You focus on customers." },
     ],
-    button: { title: "Book My Free Call", url: "/contact" },
+    button: { label: "Book My Free Call", url: "/contact" },
   },
   pricingCards: {
     spark: { setupFee: 797 },
     momentum: { setupFee: 997, pointsIntro: "Everything in Spark, plus:" },
     elevate: { setupFee: 1997, pointsIntro: "Everything in Momentum, plus:" },
   },
-  pricingButton: { title: "Compare all plans and add-ons", url: "/pricing" },
-  testimonialsButton: { title: "Read our Google reviews", url: "https://g.page/r/REPLACE-WITH-REVIEW-LINK" },
+  pricingButton: { label: "Compare all plans and add-ons", url: "/pricing" },
+  testimonialsButton: { label: "Read our Google reviews", url: "https://g.page/r/REPLACE-WITH-REVIEW-LINK" },
   faq: {
-    __component: "custom.faq",
+    __component: "sections.faq",
     title: "Questions? We’ve got answers.",
-    button: { title: "Ask us anything", url: "/contact" },
-    faqItem: [
+    button: { label: "Ask us anything", url: "/contact" },
+    items: [
       { question: "How much does a website cost?", answer: "<p>Plans start at $99/month plus a one-time $797 setup fee. Hosting, security, and updates are included, so there are no surprise bills.</p>" },
       { question: "How long does it take?", answer: "<p>Most sites launch in [2–3 weeks], depending on the plan and how quickly we get your content.</p>" },
       { question: "Do I own my website?", answer: "<p>[Your actual terms: who owns the domain and content, and what happens if they leave.]</p>" },
@@ -67,14 +67,14 @@ const PLACEHOLDERS = {
     ],
   },
   leadForm: {
-    __component: "custom.lead-form",
+    __component: "sections.lead-form",
     title: "Ready to get more customers from your website?",
     description: "Get a free website plan. No pressure, no obligation. We reply within [1 business day].",
     submitLabel: "Get My Free Plan",
     successTitle: "Thanks! Your free plan is on its way.",
     successText: "We’ll reach out within [1 business day] by email or phone.",
   },
-  footerServiceArea: { text: "Proudly serving Washington, DC, Maryland & Virginia" },
+  footerServiceArea: { label: "Proudly serving Washington, DC, Maryland & Virginia" },
 };
 
 /* ---------- helpers ---------- */
@@ -139,31 +139,31 @@ function seedHomepage(home) {
   const find = (type, pred = () => true) => content.find((c) => c.__component === type && pred(c));
   const indexOf = (type) => content.findIndex((c) => c.__component === type);
 
-  const hero = find("custom.hero");
+  const hero = find("sections.hero");
   if (hero) {
-    if (isEmpty(hero.button)) {
-      hero.button = PLACEHOLDERS.heroButtons;
+    if (isEmpty(hero.buttons)) {
+      hero.buttons = PLACEHOLDERS.heroButtons;
       changes.push("hero: added CTA buttons");
     }
-    if (isEmpty(hero.trust)) {
-      hero.trust = PLACEHOLDERS.heroTrust;
+    if (isEmpty(hero.trustItems)) {
+      hero.trustItems = PLACEHOLDERS.heroTrust;
       changes.push("hero: added trust row");
     }
   }
 
-  if (!find("custom.features", (c) => c.title === PLACEHOLDERS.paths.title)) {
-    content.splice(indexOf("custom.hero") + 1, 0, PLACEHOLDERS.paths);
+  if (!find("sections.features", (c) => c.title === PLACEHOLDERS.paths.title)) {
+    content.splice(indexOf("sections.hero") + 1, 0, PLACEHOLDERS.paths);
     changes.push("added \"Where’s your business today?\" features section after the hero");
   }
 
-  if (!find("custom.steps")) {
-    const afterWork = indexOf("custom.our-work");
+  if (!find("sections.steps")) {
+    const afterWork = indexOf("sections.our-work");
     content.splice(afterWork >= 0 ? afterWork + 1 : content.length, 0, PLACEHOLDERS.steps);
     changes.push("added steps section");
   }
 
-  const pricing = find("custom.pricing");
-  for (const card of pricing?.card || []) {
+  const pricing = find("sections.pricing");
+  for (const card of pricing?.cards || []) {
     const extra = PLACEHOLDERS.pricingCards[(card.title || "").trim().toLowerCase()];
     if (!extra) continue;
     for (const [field, value] of Object.entries(extra)) {
@@ -179,17 +179,17 @@ function seedHomepage(home) {
     changes.push("pricing: added button below the cards");
   }
 
-  const testimonials = find("custom.testimonials");
+  const testimonials = find("sections.testimonials");
   if (testimonials && isEmpty(testimonials.button)) {
     testimonials.button = PLACEHOLDERS.testimonialsButton;
     changes.push("testimonials: added reviews button");
   }
 
-  if (!find("custom.faq")) {
+  if (!find("sections.faq")) {
     content.push(PLACEHOLDERS.faq);
     changes.push("added FAQ section");
   }
-  if (!find("custom.lead-form")) {
+  if (!find("sections.lead-form")) {
     content.push(PLACEHOLDERS.leadForm);
     changes.push("added lead form section");
   }
@@ -197,8 +197,8 @@ function seedHomepage(home) {
 }
 
 function seedFooter(footer) {
-  const links = Array.isArray(footer.contactLink) ? footer.contactLink : (footer.contactLink = []);
-  if (links.some((l) => l.text === PLACEHOLDERS.footerServiceArea.text)) return [];
+  const links = Array.isArray(footer.contactLinks) ? footer.contactLinks : (footer.contactLinks = []);
+  if (links.some((l) => l.label === PLACEHOLDERS.footerServiceArea.label)) return [];
   links.push(PLACEHOLDERS.footerServiceArea);
   return ["footer: added service-area line (contact item without a link)"];
 }

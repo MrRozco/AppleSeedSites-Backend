@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_custom_our_works",
+  "info": {
+    "displayName": "Portfolio",
+    "description": "Client projects. Each card links to the client's live site.",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "projects": {
+      "type": "component",
+      "component": "elements.project",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -4,35 +4,33 @@
   "info": {
     "singularName": "testimonial",
     "pluralName": "testimonials",
-    "displayName": "Testimonial"
+    "displayName": "Page · Testimonials",
+    "description": "/testimonials"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "description": {
-      "type": "text"
-    },
-    "url": {
-      "type": "string"
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
     },
     "content": {
       "type": "dynamiczone",
       "components": [
-        "custom.testimonials",
-        "custom.hero",
-        "custom.performance",
-        "custom.our-work",
-        "custom.features",
-        "custom.about-section",
-        "custom.business-section",
-        "custom.steps",
-        "custom.faq",
-        "custom.lead-form"
+        "sections.hero",
+        "sections.features",
+        "sections.text-image",
+        "sections.text-gallery",
+        "sections.our-work",
+        "sections.performance",
+        "sections.testimonials",
+        "sections.pricing",
+        "sections.steps",
+        "sections.faq",
+        "sections.lead-form"
       ]
     }
   }

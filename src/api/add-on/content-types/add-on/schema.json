@@ -4,7 +4,8 @@
   "info": {
     "singularName": "add-on",
     "pluralName": "add-ons",
-    "displayName": "Add-on"
+    "displayName": "Pricing · Add-on",
+    "description": "Optional extras listed on /pricing, sorted by Sort order."
   },
   "options": {
     "draftAndPublish": true
@@ -35,7 +36,7 @@
     },
     "link": {
       "type": "component",
-      "component": "shared.link",
+      "component": "elements.link",
       "repeatable": false
     },
     "sortOrder": {

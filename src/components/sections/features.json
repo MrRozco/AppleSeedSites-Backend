@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_custom_features",
+  "info": {
+    "displayName": "Feature cards",
+    "description": "A heading with a grid of cards (icon, title, text, link).",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "cards": {
+      "type": "component",
+      "component": "elements.feature-card",
+      "repeatable": true
+    },
+    "button": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_custom_business_sections",
+  "info": {
+    "displayName": "Text + image carousel",
+    "description": "Rich text beside a carousel of images. Anchor ID lets buttons link to this section (e.g. ecommerce → #ecommerce).",
+    "icon": "landscape"
+  },
+  "options": {},
+  "attributes": {
+    "anchorId": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "bullets": {
+      "type": "component",
+      "component": "elements.bullet",
+      "repeatable": true
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "imageRight": {
+      "type": "boolean",
+      "default": true
+    },
+    "buttons": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

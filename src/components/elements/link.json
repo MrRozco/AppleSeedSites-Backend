@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_layout_buttons",
+  "info": {
+    "displayName": "Link",
+    "description": "A button or link. URL: a path (/pricing), an #anchor, or a full https:// address (opens in a new tab).",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

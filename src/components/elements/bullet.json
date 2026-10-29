@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_custom_bullet_points",
+  "info": {
+    "displayName": "Bullet point",
+    "description": "Short line with an optional icon (a check mark is used when empty).",
+    "icon": "check"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "richtext"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

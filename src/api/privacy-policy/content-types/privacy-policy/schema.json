@@ -4,27 +4,33 @@
   "info": {
     "singularName": "privacy-policy",
     "pluralName": "privacy-policies",
-    "displayName": "privacy-policy"
+    "displayName": "Page · Privacy policy",
+    "description": "/privacy-policy. Use a Text + image section without an image for the policy text."
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "description": {
-      "type": "text"
-    },
-    "url": {
-      "type": "string"
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
     },
     "content": {
       "type": "dynamiczone",
       "components": [
-        "custom.hero",
-        "custom.about-section"
+        "sections.hero",
+        "sections.features",
+        "sections.text-image",
+        "sections.text-gallery",
+        "sections.our-work",
+        "sections.performance",
+        "sections.testimonials",
+        "sections.pricing",
+        "sections.steps",
+        "sections.faq",
+        "sections.lead-form"
       ]
     }
   }

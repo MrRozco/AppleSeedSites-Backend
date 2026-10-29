@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_forms_lead_form_fields",
+  "info": {
+    "displayName": "Lead form fields",
+    "description": "Labels for the lead form on /contact and in every Lead form section. Need options: JSON array of { \"value\", \"label\" }; values must be Lead → need values.",
+    "icon": "pencil"
+  },
+  "options": {},
+  "attributes": {
+    "nameLabel": {
+      "type": "string"
+    },
+    "contactLabel": {
+      "type": "string"
+    },
+    "contactPlaceholder": {
+      "type": "string"
+    },
+    "businessLabel": {
+      "type": "string"
+    },
+    "websiteLabel": {
+      "type": "string"
+    },
+    "websitePlaceholder": {
+      "type": "string"
+    },
+    "needLabel": {
+      "type": "string"
+    },
+    "needOptions": {
+      "type": "json"
+    },
+    "messageLabel": {
+      "type": "string"
+    },
+    "submitLabel": {
+      "type": "string"
+    },
+    "underButtonText": {
+      "type": "string"
+    },
+    "privacyText": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

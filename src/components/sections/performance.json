@@ -1,0 +1,43 @@
+{
+  "collectionName": "components_custom_performances",
+  "info": {
+    "displayName": "Performance & stats",
+    "description": "Text, bullet points and stat tiles, with an optional image.",
+    "icon": "chartCircle"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "bullets": {
+      "type": "component",
+      "component": "elements.bullet",
+      "repeatable": true
+    },
+    "stats": {
+      "type": "component",
+      "component": "elements.stat",
+      "repeatable": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "button": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

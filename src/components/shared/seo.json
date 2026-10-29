@@ -1,17 +1,24 @@
 {
   "collectionName": "components_shared_seos",
   "info": {
-    "displayName": "seo"
+    "displayName": "SEO",
+    "description": "Search and social preview. Aim for a title under 60 characters and a description under 160. Share image: 1200×630.",
+    "icon": "search"
   },
   "options": {},
   "attributes": {
     "metaTitle": {
-      "type": "string",
-      "maxLength": 60
+      "type": "string"
     },
     "metaDescription": {
-      "type": "text",
-      "maxLength": 160
+      "type": "text"
+    },
+    "shareImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "noIndex": {
       "type": "boolean",

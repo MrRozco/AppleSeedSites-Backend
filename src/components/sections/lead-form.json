@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_custom_lead_forms",
+  "info": {
+    "displayName": "Lead form",
+    "description": "The free website plan form. Field labels come from the Contact page single type; submissions are saved as Leads.",
+    "icon": "envelop"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "submitLabel": {
+      "type": "string",
+      "default": "Get My Free Plan"
+    },
+    "successTitle": {
+      "type": "string",
+      "default": "Thanks! Your free plan is on its way."
+    },
+    "successText": {
+      "type": "text",
+      "default": "We'll reach out within 1 business day by email or phone."
+    }
+  },
+  "config": {}
+}

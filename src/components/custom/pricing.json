@@ -1,7 +1,8 @@
 {
   "collectionName": "components_custom_pricings",
   "info": {
-    "displayName": "Pricing"
+    "displayName": "Pricing",
+    "description": "Pricing cards. The optional button is shown centered below the cards."
   },
   "options": {},
   "attributes": {
@@ -18,6 +19,11 @@
       "type": "component",
       "component": "layout.pricing-cards",
       "repeatable": true
+    },
+    "button": {
+      "type": "component",
+      "component": "layout.button",
+      "repeatable": false
     }
   },
   "config": {}

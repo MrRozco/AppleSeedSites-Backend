@@ -51,6 +51,7 @@ const PLACEHOLDERS = {
     momentum: { setupFee: 997, pointsIntro: "Everything in Spark, plus:" },
     elevate: { setupFee: 1997, pointsIntro: "Everything in Momentum, plus:" },
   },
+  pricingButton: { title: "Compare all plans and add-ons", url: "/pricing" },
   testimonialsButton: { title: "Read our Google reviews", url: "https://g.page/r/REPLACE-WITH-REVIEW-LINK" },
   faq: {
     __component: "custom.faq",
@@ -171,6 +172,11 @@ function seedHomepage(home) {
         changes.push(`pricing "${card.title}": set ${field}`);
       }
     }
+  }
+
+  if (pricing && isEmpty(pricing.button)) {
+    pricing.button = PLACEHOLDERS.pricingButton;
+    changes.push("pricing: added button below the cards");
   }
 
   const testimonials = find("custom.testimonials");

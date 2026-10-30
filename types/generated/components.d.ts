@@ -443,11 +443,12 @@ export interface SectionsLeadForm extends Struct.ComponentSchema {
 export interface SectionsOurWork extends Struct.ComponentSchema {
   collectionName: 'components_custom_our_works';
   info: {
-    description: "Client projects. Each card links to the client's live site.";
+    description: "Client projects. Each card links to the client's live site. The optional button shows below the cards.";
     displayName: 'Portfolio';
     icon: 'briefcase';
   };
   attributes: {
+    button: Schema.Attribute.Component<'elements.link', false>;
     description: Schema.Attribute.Text;
     eyebrow: Schema.Attribute.String;
     projects: Schema.Attribute.Component<'elements.project', true>;

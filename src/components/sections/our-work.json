@@ -2,7 +2,7 @@
   "collectionName": "components_custom_our_works",
   "info": {
     "displayName": "Portfolio",
-    "description": "Client projects. Each card links to the client's live site.",
+    "description": "Client projects. Each card links to the client's live site. The optional button shows below the cards.",
     "icon": "briefcase"
   },
   "options": {},
@@ -20,6 +20,11 @@
       "type": "component",
       "component": "elements.project",
       "repeatable": true
+    },
+    "button": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": false
     }
   },
   "config": {}
